@@ -1,11 +1,10 @@
 class User < ApplicationRecord
   # Include default devise modules. Others available are:
   # :confirmable, :lockable, :timeoutable and :omniauthable
-
-  has_many :stores
   has_many :products, through: :stores
   has_many :itens, through: :products
   has_many :carts, through: :itens
+  has_one :store
 
   devise :database_authenticatable, :registerable, :recoverable, :rememberable, :trackable, :validatable,
   :omniauthable, omniauth_providers: [:facebook]
@@ -31,4 +30,5 @@ class User < ApplicationRecord
 
     return user
   end
+  
 end
