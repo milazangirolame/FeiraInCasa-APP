@@ -2,18 +2,6 @@
   <div class="row">
     <div class="col-xs-12 col-sm-6 col-sm-offset-3">
       <h1>Agora vamos criar a sua loja:</h1>
-
-        <%= simple_form_for(@store) do |f| %>
-        <%= f.input :name, placeholder: "Digite o nome de sua loja" %>
-        <%= f.input :address, placeholder: "Rua das Pitangueiras, 10" %>
-        <%= f.input :city, placeholder: "São Paulo" %>
-        <%= f.input :days_of_week_opened, collection: ["Segunda-feira", "Terça-feira", "Quarta-feira", "Quinta-feira", "Sexta-Feira", "Sábado", "Domingo"] %>
-        <%= f.input :delivery_product %>
-        <%= f.input :maximum_distance_to_deliver_km, placeholder: "5" %>
-        <%= f.button :submit, class: "btn btn-primary"  %>
-      <% end %>
-
-
         <%= render '/shared/form_store' %>
     </div>
   </div>
