@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20171120174829) do
+ActiveRecord::Schema.define(version: 20171121142646) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -32,7 +32,7 @@ ActiveRecord::Schema.define(version: 20171120174829) do
     t.string "zipcode"
     t.time "opened_time"
     t.time "closed_time"
-    t.string "days_of_week_opened"
+    t.text "days_of_week_opened"
     t.boolean "delivery_product"
     t.integer "maximum_distance_to_deliver_km"
     t.bigint "user_id"

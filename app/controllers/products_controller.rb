@@ -16,19 +16,20 @@ class ProductsController < ApplicationController
 
   def create
 
-     @product = Product.new(product_params)
-    @product.user = current_user
+       @product = Product.new(product_params)
+       @product.store = current_user.store
     if @product.save
       redirect_to @product
     else
-render :new
-
-      end
+      render :new
     end
+
+  end
 
   def edit
 
      @product = Product.find(params[:id])
+     @product.store = current_user.store
 
   end
 
@@ -52,7 +53,8 @@ render :new
    private
 
   def product_params
-    params.require(:product).permit(:name, :category, :price, :unity, :store_id,
+    params.require(:product).permit(:name, :category, :price, :unity, :store_id)
+
   end
 
 end
