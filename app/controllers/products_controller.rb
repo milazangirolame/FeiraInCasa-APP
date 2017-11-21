@@ -15,19 +15,16 @@ class ProductsController < ApplicationController
   end
 
   def create
-
-       @product = Product.new(product_params)
-       @product.store = current_user.store
+    @product = Product.new(product_params)
+    @product.store = current_user.store
     if @product.save
       redirect_to @product
     else
       render :new
     end
-
   end
 
   def edit
-
      @product = Product.find(params[:id])
      @product.store = current_user.store
 
