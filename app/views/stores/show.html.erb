@@ -1,1 +1,16 @@
-<h1> Teste do show </h1>
+<div class="container">
+  <div class="row">
+    <div class="col-xs-12 col-sm-6 col-md-12 col-sm-offset-3">
+      <h1> <%= @store.name %> </h1>
+      <h2> Proprietário da loja: <%= @store.user.email %> </h2>
+      <h4>Endereço:<%= @store.address %></h4>
+      <h4>Cidade:<%= @store.city %></h4>
+      <h4>Dias da semana aberto:<%= @store.days_of_week_opened %></h4>
+      <h4>Horário de abertura:<%= @store.opened_time %></h4>
+      <h4>Horário de fechamento:<%= @store.closed_time %></h4>
+      <h4>Faz entrega:<%=@store.delivery_product %></h4>
+       <%= link_to "Adicionar produtos a loja", new_product_path, class: "btn btn-primary btn-lg" %>
+    </div>
+  </div>
+</div>
+
