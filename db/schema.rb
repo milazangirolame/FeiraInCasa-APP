@@ -52,7 +52,7 @@ ActiveRecord::Schema.define(version: 20171121150546) do
     t.string "zipcode"
     t.time "opened_time"
     t.time "closed_time"
-    t.string "days_of_week_opened"
+    t.text "days_of_week_opened"
     t.boolean "delivery_product"
     t.integer "maximum_distance_to_deliver_km"
     t.bigint "user_id"
