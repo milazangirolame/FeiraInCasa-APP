@@ -4,12 +4,11 @@
       <h1>Crie seu Produto:</h1>
          <%= simple_form_for(@product) do |f| %>
         <%= f.input :name, placeholder: "Digite o Nome do Seu Produto:" %>
-        <%= f.input :category, collection: ["Vegetais", "Mercearia", "Bebidas"]  %>
+        <%= f.input :category, collection: ["Legumes", "Frutas", "Bebidas" , "Verduras" , "Queijos" , "Ovos e Leite"]  %>
         <%= f.input :price, placeholder: "00.00" %>
-        <%= f.input :unity, placeholder: "Digite a Unidade do Seu Produto:" %>
+        <%= f.input :unity, collection: [ "unidade", "grama", "kilo", "litro", "dúzia"] %>
         <%= f.button :submit, class: "btn btn-primary"  %>
       <% end %>
-
     </div>
   </div>
 </div>
