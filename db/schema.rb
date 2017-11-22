@@ -59,7 +59,6 @@ ActiveRecord::Schema.define(version: 20171121193750) do
     t.integer "store_id"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
-    t.string "photo"
   end
 
   create_table "stores", force: :cascade do |t|
