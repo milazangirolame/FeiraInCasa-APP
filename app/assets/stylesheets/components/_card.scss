@@ -1,7 +1,7 @@
 .card {
   background-size: cover !important;
   background-position: center;
-  color: green;
+  color: black;
   position: relative;
   margin-left: 10px;
   margin-right: 10px;
@@ -31,6 +31,7 @@
   font-size: 15px;
   text-transform: uppercase;
 }
+
 .card h4 {
   font-size: 16px;
   color: black;
@@ -40,7 +41,6 @@
   font-size: 24px;
 
 }
-
 .card-description h2 {
   font-size: 24px;
 
@@ -63,4 +63,18 @@
 }
 .card-link:hover {
   opacity: 0.1;
+}
+
+.icon {
+  z-index: 4;
+  margin: 0;
+  position: absolute;
+  bottom: 5px;
+  left: 10px;
+}
+
+.category-icon {
+  width: 30px;
+  padding: 5px;
+
 }
