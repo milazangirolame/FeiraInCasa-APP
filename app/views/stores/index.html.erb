@@ -1,24 +1,27 @@
 <div class="container">
-     <div class="row">
+  <div class="row">
       <% @stores.each do |store| %>
         <div class="col-xs-12 col-sm-4">
           <div class="card">
             <div class="card-description">
               <h2> <%= store.name %> </h2>
               <p> <%= store.user.email %> </p>
-              <p>
-                Faz entrega? <%= store.delivery_product ? 'Sim' : 'Não' %>
-              </p>
-              <p> Categorias:
-                <% store.products.map(&:category).uniq.each do |category| %>
-                  <%= category %>
-                <% end %>
-              </p>
             </div>
-            <% avatar_url = store.user.facebook_picture_url || "http://placehold.it/30x30" %>
-            <%= image_tag avatar_url, class: "card-user"%>
-            <%= link_to "", store_path(store), class:"card-link" %>
+              <% avatar_url = store.user.facebook_picture_url || "http://placehold.it/30x30" %>
+              <%= image_tag avatar_url, class: "card-user"%>
+            <div class= "icon">
+
+              <% if store.delivery_product? %>
+                <i class="fa fa-truck" data-toggle="tooltip" data-placement="top" title="Frete"></i>
+              <% end %>
+                <% store.products.map(&:category).uniq.each do |category| %>
+                  <%= image_tag("#{category}", class: "category-icon", "data-toggle" => "tooltip", "data-placement" => "top", :title => "#{category}") %>
+              <% end %>
           </div>
-        </div>
-      <% end %>
+        <%= link_to "", store_path(store), class:"card-link" %>
+      </div>
     </div>
+  <% end %>
+</div>
+
+
