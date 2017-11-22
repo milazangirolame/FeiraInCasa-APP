@@ -1,0 +1,8 @@
+<%= simple_form_for(@product) do |f| %>
+        <%= f.input :name, placeholder: "Digite o Nome do Seu Produto:" %>
+        <%= f.input :category, collection: ["Legumes", "Frutas", "Bebidas" , "Verduras" , "Queijos" , "Ovos e Leite"]  %>
+        <%= f.input :price, placeholder: "00.00" %>
+        <%= f.input :unity, collection: [ "unidade", "grama", "kilo", "litro", "dúzia"] %>
+        <%= f.input :photos, as: :attachinary %>
+        <%= f.button :submit, class: "btn btn-primary"  %>
+      <% end %>
