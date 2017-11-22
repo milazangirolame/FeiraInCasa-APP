@@ -2,22 +2,46 @@
 #map {
   height: 400px;
   width: 100%;
-    }
+}
 
 h1 {
-  color: white
+  color: white;
 }
 
 #p {
-  color: white
+  color: white;
 }
 
 #image1 {
-width: 150%;
-height: 140px;
-margin-top: 15px;
-    }
+  width: 150%;
+  height: 140px;
+  margin-top: 15px;
+}
 
-#btn-lg {
-  color:green
+.btn-lg {
+  color:green;
+}
+
+.marker-infowindow {
+  h4 {
+    color: red;
+    width: 100px;
+    height: 40px
+  }
+
+.header {
+  font-family: 'Open Sans Condensed', sans-serif;
+   font-size: 22px;
+   font-weight: 400;
+   padding: 10px;
+   background-color: #48b5e9;
+   color: white;
+   margin: 1px;
+   border-radius: 2px 2px 0 0;
+}
+
+  .marker-image {
+    width: auto;
+    height: 50px;
+  }
 }

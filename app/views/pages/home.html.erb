@@ -16,10 +16,24 @@
           zoom: 10,
           center: uluru
         });
+
+        var infowindow = new google.maps.InfoWindow({
+          content: '<div class="marker-infowindow"><h6 class="header">Hello World!</h6><p>Olá</p> <img src="http://smallfruits.wsu.edu/wp-content/uploads/2014/05/Picture1.png" class="marker-image" /></div>',
+        });
+
         var marker = new google.maps.Marker({
           position: uluru,
           map: map
         });
+
+        marker.addListener('mouseover', function() {
+          infowindow.open(map, marker);
+        });
+
+        marker.addListener('mouseout', function() {
+          infowindow.close();
+        });
+
       }
     </script>
     <script async defer
