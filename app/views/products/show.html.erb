@@ -1,24 +1,22 @@
-
-<div class="container">
-<div class="product-details">
- <div class="row">
-
-  <div class="col-xs-12 col-sm-6 col-md-4">
-    <br></br>
-    <h4>Produto:</h4><strong><h1><%= @product.name %></h1></strong>
-    <br></br>
-    <h4>Categoria:</h4><h5><%= @product.category %></h5>
-    <h4>Venda por:</h4><h5><%= @product.unity %></h5>
-    <h4>preço:</h4><h5><%= @product.price %></h5>
-
- </div>
+<div class="message">
+  <% photo = @product.photos.first %>
+  <% if photo %>
+    <%= cl_image_tag(photo.path, class: "avatar-large") %>
+  <% end %>
+  <div class="message-body">
+    <p><strong><%=@product.category%></strong></p>
+    <h6><%=@product.name%></h6>
+  </div>
+  <div class="message-body">
+    <p><strong>Unidade</strong></p>
+    <h6><%=@product.unity%></h6>
+  </div>
+  <div class="message-body">
+    <p><strong>Preço</strong></p>
+    <h6><%=@product.price%></h6>
+  </div>
+  <div class="message-body">
+    <p><strong><i class="fa fa-cart-arrow-down" aria-hidden="true"></i><p></strong></p>
+  </div>
 </div>
 
-<div class="product-details">
- <div class="row">
-<br></br>
- </div>
- </div>
-
-</div>
-</div>

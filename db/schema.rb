@@ -10,10 +10,46 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20171122135544) do
+ActiveRecord::Schema.define(version: 20171121193750) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
+
+  create_table "attachinary_files", force: :cascade do |t|
+    t.string "attachinariable_type"
+    t.bigint "attachinariable_id"
+    t.string "scope"
+    t.string "public_id"
+    t.string "version"
+    t.integer "width"
+    t.integer "height"
+    t.string "format"
+    t.string "resource_type"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.index ["attachinariable_type", "attachinariable_id", "scope"], name: "by_scoped_parent"
+    t.index ["attachinariable_type", "attachinariable_id"], name: "attachinariable_index"
+  end
+
+  create_table "carts", force: :cascade do |t|
+    t.string "delivery_address"
+    t.string "delivery_city"
+    t.string "delivery_zipcode"
+    t.date "delivery_date"
+    t.string "payment_method"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.bigint "user_id"
+    t.index ["user_id"], name: "index_carts_on_user_id"
+  end
+
+  create_table "items", force: :cascade do |t|
+    t.string "quantity"
+    t.bigint "cart_id"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.index ["cart_id"], name: "index_items_on_cart_id"
+  end
 
   create_table "products", force: :cascade do |t|
     t.string "name"
@@ -73,5 +109,7 @@ ActiveRecord::Schema.define(version: 20171122135544) do
     t.index ["reset_password_token"], name: "index_users_on_reset_password_token", unique: true
   end
 
+  add_foreign_key "carts", "users"
+  add_foreign_key "items", "carts"
   add_foreign_key "stores", "users"
 end
