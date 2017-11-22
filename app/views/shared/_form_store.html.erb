@@ -1,12 +1,16 @@
-   <%= simple_form_for(@store) do |f| %>
-        <%= f.input :name, placeholder: "Digite o nome de sua loja" %>
-        <%= f.input :address, placeholder: "Rua das Pitangueiras, 10" %>
-        <%= f.input :city, placeholder: "São Paulo" %>
-        <%= f.input :zipcode, placeholder: "07072-010" %>
-        <%= f.input :days_of_week_opened, as: :check_boxes, collection: [["Segunda-feira", 1], ["Terça-feira", 2], ["Quarta-feira", 3], ["Quinta-feira", 4], ["Sexta-Feira", 5], ["Sábado", 6], ["Domingo",7]], checked: @store.days_of_week_opened %>
-        <%= f.input :delivery_product %>
-        <%= f.input :maximum_distance_to_deliver_km, placeholder: "5" %>
-        <%= f.input :opened_time %>
-        <%= f.input :closed_time %>
-        <%= f.button :submit, class: "btn btn-primary"  %>
-      <% end %>
+<%= simple_form_for(@store) do |f| %>
+  <%= f.input :name, placeholder: "Digite o nome de sua loja" %>
+  <%= f.input :address, placeholder: "Rua das Pitangueiras, 10" %>
+  <%= f.input :city, placeholder: "São Paulo" %>
+  <%= f.input :zipcode, placeholder: "07072-010" %>
+  <%= f.input :days_of_week_opened, as: :check_boxes, collection: [["Segunda-feira", 1], ["Terça-feira", 2], ["Quarta-feira", 3], ["Quinta-feira", 4], ["Sexta-Feira", 5], ["Sábado", 6], ["Domingo",7]], checked: @store.days_of_week_opened %>
+  <%= f.input :delivery_product %>
+  <%= f.input :maximum_distance_to_deliver_km, placeholder: "5" %>
+  <%= f.input :opened_time %>
+  <%= f.input :closed_time %>
+  <%= f.button :submit, class: "btn btn-primary"  %>
+<% end %>
+
+<%= content_for(:after_js) do %>
+  <script src="https://maps.googleapis.com/maps/api/js?libraries=places&amp;key=<%=ENV["GOOGLE_MAP_KEY"]%>"></script>
+<% end %>
