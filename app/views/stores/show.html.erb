@@ -14,7 +14,8 @@
 
       <div class="col-xs-12 col-md-6"> Produtos
         <% @store.products.each do |product| %>
-            <img class="product-thumb" src="https://kitt.lewagon.com/placeholder/users/gabriel-dehan"></p>
+            <div class="product-thumb">
+              <img src="https://kitt.lewagon.com/placeholder/users/gabriel-dehan"></div>
 
              <div class="product">
               <h3><%=product.category%></h3>
@@ -26,8 +27,8 @@
             </div>
 
             <div class="product-cart">
-            <i class="fa fa-cart-arrow-down" aria-hidden="true"> C </i>
-            <p class="price"> +  / - </p>
+            <i class="fa fa-cart-arrow-down" aria-hidden="true">  </i>
+            <p class="price"> +   / - </p>
             </div>
             <% if current_user == @store.user %>
             <%= link_to "Editar", edit_product_path, class: "btn btn-primary btn-lg" %>
