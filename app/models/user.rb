@@ -2,12 +2,16 @@ class User < ApplicationRecord
   # Include default devise modules. Others available are:
   # :confirmable, :lockable, :timeoutable and :omniauthable
   has_many :products, through: :stores
-  has_many :itens, through: :products
-  has_many :carts, through: :itens
+  has_many :itens, through: :carts
+  has_many :carts
   has_one :store
 
   devise :database_authenticatable, :registerable, :recoverable, :rememberable, :trackable, :validatable,
   :omniauthable, omniauth_providers: [:facebook]
+
+  def current_cart
+    carts.order(created_at: :desc).first || Cart.create!(user: self)
+  end
 
   def self.find_for_facebook_oauth(auth)
     user_params = auth.slice(:provider, :uid)
@@ -30,5 +34,5 @@ class User < ApplicationRecord
 
     return user
   end
-  
+
 end

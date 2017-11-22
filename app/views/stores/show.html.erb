@@ -1,49 +1,47 @@
 <div class="container">
-  <div class="cards">
-    <div class="row">
-      <div class="col-xs-12 col-md-6">
+  <div class="row">
+    <div class= "col-xs-12 col-md-4">
+      <div class="card">
         <h3> <%= @store.name %> </h3>
-        <h3><strong>Feirante:</strong><%= @store.user.first_name%></h3>
-        <h4><strong>Endereço:<%= @store.address %></strong></h4>
-        <h4><strong>Cidade:<%= @store.city %></strong></h4>
-        <h4><strong>Aberto em:<%= @store.days_of_week_opened %></strong></h4>
-        <h4><strong>Abre em:<%= @store.opened_time %></strong></h4>
-        <h4><strong>Fecha em:<%= @store.closed_time %></strong></strong></h4>
-        <h4><strong>Faz entrega:<%=@store.delivery_product %></strong></h4>
-      </div>
+        <h3><p><strong>Feirante:</strong></p>
+            <%= @store.user.first_name%> <%= @store.user.last_name%></h3>
+        <h4><strong>Endereço:<%= @store.address %></h4>
+        <h4><strong>Cidade:</strong><%= @store.city %></h4>
+        <h4><strong>Aberto em:</strong><%= @store.days_of_week_opened %></h4>
+        <h4><strong>Abre em:</strong><%= @store.opened_time %></h4>
+        <h4><strong>Fecha em:</strong><%= @store.closed_time %></h4>
+        <h4><strong>Faz entrega:</strong><%=@store.delivery_product %></h4>
+        <%if current_user == @store.user %>
+          <%= link_to edit_store_path(@store) do %>
+            <i class="fa fa-pencil icon" aria-hidden="true"></i>
 
-      <div class="col-xs-12 col-md-6"> Produtos
-        <% @store.products.each do |product| %>
-            <div class="product-thumb">
-              <img src="https://kitt.lewagon.com/placeholder/users/gabriel-dehan"></div>
-
-             <div class="product">
-              <h3><%=product.category%></h3>
-              <p><%=product.name%></p>
-              <p><strong>Unidade</strong></p>
-              <p><%=product.unity%></p>
-              <p><strong>Preço</strong></p>
-              <p><%=product.price%></p>
-            </div>
-
-            <div class="product-cart">
-            <i class="fa fa-cart-arrow-down" aria-hidden="true">  </i>
-            <p class="price"> +   / - </p>
-            </div>
-            <% if current_user == @store.user %>
-            <%= link_to "Editar", edit_product_path, class: "btn btn-primary btn-lg" %>
-
-            <%end%>
+          <%end%>
         <%end%>
       </div>
-
-      <%if current_user == @store.user %>
-      <div class="row">
-        <%= link_to "Adicionar produtos a loja", new_product_path, class: "btn btn-primary btn-lg" %>
+    </div>
+    <div class= "col-xs-12 col-md-8">
+    <div class="card"> Produtos
+      <% @store.products.each do |product| %>
+      <div class="product">
+      <% render: "form_product" %>
+      <div class="product-cart">
+        <i class="fa fa-cart-arrow-down" aria-hidden="true"></i><p>
+        <%= link_to more_cart_itens_path(current_user.current_cart, product_id: product.id), remote: true, method: :post do %>
+            <i class="fa fa-plus-circle"></i>
+        <% end %>
+        <%= link_to less_cart_itens_path(current_user.current_cart, product_id: product.id), remote: true, method: :post do %>
+            <i class="fa fa-minus-circle"></i>
+        <%end%>
+        <%= link_to cart_itens_path(current_user.current_cart, product_id: product.id), remote: true, method: :delete do %>
+            <i class="fa fa-times-circle"></i>
+        <% end %>
       </div>
-      <% end %>
+      </div>
+      <%end%>
+    </div>
    </div>
   </div>
+ </div>
 </div>
 
 
