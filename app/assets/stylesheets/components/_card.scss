@@ -65,6 +65,7 @@
 }
 .card-link:hover {
   opacity: 0.1;
+  margin: 0px;
 }
 
 .icon {
@@ -78,5 +79,35 @@
 .category-icon {
   width: 30px;
   padding: 5px;
+}
+
+.icon-map {
+  z-index: 4;
+  margin: 0;
+  position: absolute;
+  left: 2px;
+  bottom: 2px;
+  padding: 2px;
+}
+
+.avatar-map {
+  position: absolute;
+  margin: 0;
+  top: 5px;
+  right: 5px;
+  width: 40px;
+  border-radius: 50%;
 
 }
+
+
+.card-map {
+  height: 120px;
+  left: 2px;
+  top: 2px;
+  margin: 0px;
+  vertical-align: middle;
+  text-align: center;
+}
+
+

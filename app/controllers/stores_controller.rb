@@ -49,7 +49,7 @@ class StoresController < ApplicationController
   private
 
   def store_params
-    params.require(:store).permit(:name, :address, :city, :zipcode, :opened_time, :closed_time, :delivery_product, :maximum_distance_to_deliver_km, days_of_week_opened: [])
+    params.require(:store).permit(:name, :address, :city, :zipcode, :opened_time, :longitude, :latitude, :closed_time, :delivery_product, :maximum_distance_to_deliver_km, days_of_week_opened: [])
   end
 
 end
