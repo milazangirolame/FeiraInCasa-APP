@@ -5,39 +5,25 @@
     <h3>Vegetais Frescos a um Clique</h3>
     <%= link_to 'Comprar', new_store_path, class: "btn btn-success btn-lg"%>
     <h4>Ou selecione o local mais próximo</h4>
-
   </div>
 </div>
 
-<div id="map"></div>
-    <script>
-      function initMap() {
-        var uluru = {lat: -23.5505, lng: -46.633};
-        var map = new google.maps.Map(document.getElementById('map'), {
-          zoom: 10,
-          center: uluru
-        });
 
-        var infowindow = new google.maps.InfoWindow({
-          content: '<div class="marker-infowindow"><h6 class="header">Hello World!</h6><p>Olá</p> <img src="http://smallfruits.wsu.edu/wp-content/uploads/2014/05/Picture1.png" class="marker-image" /></div>',
-        });
+  <div id="map" style="width: 100%; height: 400px;"></div>
 
-        var marker = new google.maps.Marker({
-          position: uluru,
-          map: map
-        });
 
-        marker.addListener('mouseover', function() {
-          infowindow.open(map, marker);
-        });
-
-        marker.addListener('mouseout', function() {
-          infowindow.close();
-        });
-
+<% content_for(:after_js) do %>
+  <%= javascript_tag do %>
+    var handler = Gmaps.build('Google');
+    handler.buildMap({ internal: { id: 'map' } }, function() {
+      markers = handler.addMarkers(<%= raw @markers.to_json %>);
+      handler.bounds.extendWith(markers);
+      handler.fitMapToBounds();
+      if (markers.length == 0) {
+        handler.getMap().setZoom(4);
+      } else if (markers.length == 1) {
+        handler.getMap().setZoom(14);
       }
-    </script>
-    <script async defer
-    src="https://maps.googleapis.com/maps/api/js?<%=ENV["GOOGLE_MAP_KEY"]%>&callback=initMap">
-    </script>
-
+    });
+  <% end %>
+<% end %>
