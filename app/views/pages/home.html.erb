@@ -1,9 +1,8 @@
 <div class="banner" style="background-image: linear-gradient(-225deg, rgba(0,101,168,0.6) 0%, rgba(0,36,61,0.6) 50%), url('https://img.webmd.com/dtmcms/live/webmd/consumer_assets/site_images/articles/health_tools/12_powerhouse_vegetables_slideshow/intro_cream_of_crop.jpg');">
-
   <div class="banner-content">
     <h2>Feirincasa</h2>
     <h1>Vegetais Frescos a um Clique</h1>
-    <%= link_to 'Comprar', new_store_path, class: "btn btn-success btn-lg"%>
+    <%= link_to 'Comprar', stores_path, class: "btn btn-success btn-lg"%>
     <h4>Ou selecione o local mais próximo</h4>
 
   </div>
@@ -40,4 +39,33 @@
     <script async defer
     src="https://maps.googleapis.com/maps/api/js?<%=ENV["GOOGLE_MAP_KEY"]%>&callback=initMap">
     </script>
+
+<div class="banner2">
+  <section id="como-funciona">
+  <h2 class="subtitle mb 80">Como funciona</h2>
+  <h3>Para o comprador</h3><br><br>
+  <div class="row">
+    <div class="col-md-3">
+      <i class="fa fa-pencil fa-3x"></i>
+      <p>Cadastre-se</p>
+    </div>
+
+    <div class="col-md-3">
+      <i class="fa fa-check-square-o fa-3x"></i>
+      <p>Selecione o produto e o vendedor</p>
+    </div>
+
+    <div class="col-md-3">
+      <i class="fa fa-file-text fa-3x"></i>
+      <p>Faça sua lista</p>
+    </div>
+
+    <div class="col-md-3">
+      <i class="fa fa-credit-card fa-3x"></i>
+      <p>Escolha o método de pagamento</p>
+    </div>
+
+  </div>
+
+</div>
 
