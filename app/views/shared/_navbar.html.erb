@@ -32,6 +32,7 @@
       </div>
     <% else %>
       <!-- Login link (when logged out) -->
+      <%=link_to "Como Funciona", "#como-funciona", class: "navbar-wagon-item navbar-wagon-link" %>
       <%= link_to t(".sign_in", default: "Login"), new_user_session_path, class: "navbar-wagon-item navbar-wagon-link" %>
     <%= link_to "Torne-se um Vendedor", new_store_path, class: "navbar-wagon-item navbar-wagon-link" %>
     <% end %>
