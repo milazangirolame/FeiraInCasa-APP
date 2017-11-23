@@ -8,7 +8,7 @@ Rails.application.routes.draw do
   resources :stores
   resources :products
   resources :carts do
-    resources :itens, only: [:create, :destroy, :update] do
+    resources :items, only: [:create, :destroy, :update] do
       collection do
         post :more
         post :less

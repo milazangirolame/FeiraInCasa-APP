@@ -1,4 +1,4 @@
-class ItensController < ApplicationController
+class ItemsController < ApplicationController
 
   def new
    @item = Item.new
@@ -45,7 +45,7 @@ class ItensController < ApplicationController
   end
 
 
-  def itens_params
+  def items_params
     params.require(:item).permit(:product_id , :user_id)
   end
 end

@@ -9,12 +9,14 @@
   background-color: #ffffff;
   border-radius: 5px;
   padding: 20px;
+  box-shadow: 0 4px 8px 0 rgba(0,0,0,0.2);
 
   .icon {
     font-size: 30px;
     text-shadow: none;
-    color: green;
+    color: #32B796;
   }
+
 }
 
 .card-user {
@@ -64,19 +66,53 @@
   opacity: 0;
 }
 .card-link:hover {
-  opacity: 0.1;
+  opacity: 0.3;
+  background-color: #0099cc;
+  margin: 0px;
 }
 
 .icon {
   z-index: 4;
   margin: 0;
-  position: absolute;
   bottom: 5px;
   left: 10px;
+  display: inline;
+  margin:2px;
+  color:#0099cc;
 }
 
 .category-icon {
   width: 30px;
   padding: 5px;
+}
+
+.icon-map {
+  z-index: 4;
+  margin: 0;
+  position: absolute;
+  left: 2px;
+  bottom: 2px;
+  padding: 2px;
+}
+
+.avatar-map {
+  position: absolute;
+  margin: 0;
+  top: 5px;
+  right: 5px;
+  width: 40px;
+  border-radius: 50%;
 
 }
+
+
+.card-map {
+  height: 120px;
+  left: 2px;
+  top: 2px;
+  margin: 0px;
+  vertical-align: middle;
+  text-align: center;
+}
+
+
