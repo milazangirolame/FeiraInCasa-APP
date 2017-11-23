@@ -6,7 +6,7 @@ class CartsController < ApplicationController
 
   def show
     @cart = Cart.find(params[:id])
-
+    @products = @cart.products
 
   end
 
@@ -18,8 +18,9 @@ class CartsController < ApplicationController
 
   def create
     @cart = Cart.new(cart_params)
+    @cart.user = current_user
     if @cart.save
-      redirect_to @itens_path
+      redirect_to @items_path
     else
       render :new
     end
@@ -28,7 +29,7 @@ class CartsController < ApplicationController
   def edit
 
    @cart = Cart.find(params[:id])
-   @itens = current_user.product.item.all
+   @items = current_user.product.item.all
 
 
  end
@@ -53,7 +54,7 @@ end
 private
 
 def cart_params
-  params.require(:cart).permit(:delivery_date, :delivery_zipcode, :delivery_address, :delivery_city, :payment_method)
+  params.require(:cart).permit(:items, :user, :delivery_date, :delivery_zipcode, :delivery_address, :delivery_city, :payment_method)
 
 end
 

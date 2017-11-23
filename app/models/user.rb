@@ -3,7 +3,7 @@ class User < ApplicationRecord
   # :confirmable, :lockable, :timeoutable and :omniauthable
 
   has_many :products, through: :stores
-  has_many :itens, through: :carts
+  has_many :items, through: :carts
   has_many :carts
 
   has_one :store

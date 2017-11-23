@@ -1,5 +1,11 @@
 class StoresController < ApplicationController
   def new
+
+    if current_user.store.present?
+      redirect_to root_path, alert: 'Você já possui uma store'
+      return
+    end
+
     @store = Store.new
   end
 
