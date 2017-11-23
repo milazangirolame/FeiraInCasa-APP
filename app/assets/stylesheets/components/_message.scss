@@ -3,6 +3,16 @@
   align-items: center;
   padding: 10px;
   border-bottom: 1px solid rgba(220,224,244,0.4);
+  .icon {
+    font-size: 15px;
+    text-shadow: none;
+    color: green;
+  }
+  .title {
+    font-size: 25px;
+    text-shadow: none;
+    color: green;
+  }
 }
 .message:last-child {
   border-bottom: none;

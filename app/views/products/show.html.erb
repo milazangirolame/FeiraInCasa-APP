@@ -13,10 +13,19 @@
   </div>
   <div class="message-body">
     <p><strong>Preço</strong></p>
-    <h6><%=@product.price%></h6>
+    <h6>R<%=number_to_currency @product.price%></h6>
   </div>
   <div class="message-body">
-    <p><strong><i class="fa fa-cart-arrow-down" aria-hidden="true"></i><p></strong></p>
+    <p><i class="fa fa-cart-arrow-down title" aria-hidden="true"></i></p>
+        <%= link_to more_cart_itens_path(current_user.current_cart, product_id: @product.id), remote: true, method: :post do %>
+            <i class="fa fa-plus-circle icon"></i>
+        <% end %>
+        <%= link_to less_cart_itens_path(current_user.current_cart, product_id: @product.id), remote: true, method: :post do %>
+            <i class="fa fa-minus-circle icon"></i>
+        <%end%>
+        <%= link_to cart_itens_path(current_user.current_cart, product_id: @product.id), remote: true, method: :delete do %>
+            <i class="fa fa-times-circle icon"></i></p>
+        <%end%>
   </div>
 </div>
 
