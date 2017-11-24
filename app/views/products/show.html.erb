@@ -15,17 +15,19 @@
     <p><strong>Preço</strong></p>
     <h6>R<%=number_to_currency @product.price%></h6>
   </div>
-  <div class="message-body">
-    <p><i class="fa fa-cart-arrow-down title" aria-hidden="true"></i></p>
-        <%= link_to more_cart_items_path(current_user.current_cart, product_id: @product.id), remote: true, method: :post do %>
-            <i class="fa fa-plus-circle icon"></i>
-        <% end %>
-        <%= link_to less_cart_items_path(current_user.current_cart, product_id: @product.id), remote: true, method: :post do %>
-            <i class="fa fa-minus-circle icon"></i>
-        <%end%>
-        <%= link_to cart_items_path(current_user.current_cart, product_id: @product.id), remote: true, method: :delete do %>
-            <i class="fa fa-times-circle icon"></i></p>
-        <%end%>
+  <div class="message-number">
+    <%= link_to more_cart_items_path(current_user.current_cart, product_id: @product.id), remote: true, method: :post, class: 'positive' do %>
+        <i class="fa fa-plus-circle icon"></i>
+    <% end %>
+  </div>
+    <div class="message-number product-items">
+    <h5><%= @item.quantity %></h5>
+    </div>
+    <div class="message-number">
+    <%= link_to less_cart_items_path(current_user.current_cart, product_id: @product.id), remote: true, method: :post, class: 'negative' do %>
+        <i class="fa fa-minus-circle icon"></i>
+    <%end%>
+  </div>
   </div>
 </div>
 

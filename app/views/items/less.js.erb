@@ -1,1 +1,6 @@
-toastr.success("Removido produto <%= @product.name %>!");
+<% if @item.valid? %>
+  $('.cart-nav').text(<%=@cart.items.count %>)
+  $('.product-items h5').text(<%= @item.quantity %>)
+  $('#toast-container').hide()
+  toastr.success("Removido produto <%= @product.name %>!");
+<% end %>

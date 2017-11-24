@@ -1,19 +1,19 @@
 <div class="message">
-  <% photo = product.photos.first %>
+  <% photo = item.product.photos.first %>
   <% if photo %>
     <%= cl_image_tag(photo.path, class: "avatar-large") %>
   <% end %>
   <div class="message-body">
-    <p><strong><%=product.category%></strong></p>
-    <h6><%=product.name%></h6>
+    <p><strong><%=item.product.category%></strong></p>
+    <h6><%=item.product.name%></h6>
   </div>
   <div class="message-body">
     <p><strong>Unidade</strong></p>
-    <h6><%=product.unity%></h6>
+    <h6><%=item.quantity%> <%=item.product.unity%></h6>
   </div>
   <div class="message-body">
     <p><strong>Preço</strong></p>
-    <h6><%=number_to_currency product.price%></h6>
+    <h6><%=number_to_currency item.product.price * item.quantity%></h6>
   </div>
   </div>
 </div>

@@ -5,10 +5,11 @@
   padding: 10px;
   border-bottom: 1px solid rgba(220,224,244,0.4);
   .icon {
-    font-size: 15px;
+    font-size: 24px;
     text-shadow: none;
     color: #32B796;
   }
+
   .title {
     font-size: 25px;
     text-shadow: none;
@@ -72,3 +73,6 @@
   border: white 1px solid;
 }
 
+message-number {
+ width: 20px;
+}

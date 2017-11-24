@@ -6,6 +6,10 @@ class ProductsController < ApplicationController
 
   def show
     @product = Product.find(params[:id])
+    @item = current_user.current_cart.items.find_by(product: @product)
+    if !@item
+      @item = Item.new(quantity: 0)
+    end
   end
 
   def new
