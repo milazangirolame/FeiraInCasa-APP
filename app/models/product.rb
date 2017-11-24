@@ -1,8 +1,6 @@
 class Product < ApplicationRecord
+  CATEGORIES = ["Legumes", "Frutas", "Bebidas" , "Verduras" , "Queijos" , "Ovos e Leite"]
   belongs_to :store
   has_attachments :photos, maximum: 10
-end
-
-def price(float_n)
-  float_n.round(3).to_s[0..3].to_f
+  validates_inclusion_of :category, in: CATEGORIES
 end
