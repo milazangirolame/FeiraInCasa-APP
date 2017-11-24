@@ -1,4 +1,8 @@
 class StoresController < ApplicationController
+  def index
+    @stores = Store.all
+  end
+
   def new
 
     if current_user.store.present?
@@ -46,10 +50,6 @@ class StoresController < ApplicationController
     else
      render :edit
     end
-  end
-
-  def index
-    @stores = Store.all
   end
 
   private
