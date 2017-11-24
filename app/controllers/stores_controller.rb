@@ -1,4 +1,8 @@
 class StoresController < ApplicationController
+  def index
+    @stores = Store.all
+  end
+
   def new
     @store = Store.new
   end
@@ -40,10 +44,6 @@ class StoresController < ApplicationController
     else
      render :edit
     end
-  end
-
-  def index
-    @stores = Store.all
   end
 
   private
