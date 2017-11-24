@@ -3,9 +3,11 @@
   <%= link_to root_path, class: "navbar-wagon-brand" do %>
     <%= image_tag "feirincasa_logo.png" %>
   <% end %>
+  <h2>Feirincasa</h2>
 
   <!-- Right Navigation -->
   <div class="navbar-wagon-right hidden-xs hidden-sm">
+    <%= link_to "Comprar", stores_path, class: "navbar-wagon-item navbar-wagon-link" %>
 
     <% if user_signed_in? %>
 
@@ -17,6 +19,8 @@
         <%= link_to "Editar Loja",  edit_store_path(current_user.store), class: "navbar-wagon-item navbar-wagon-link" %>
       <% end %>
       <%= link_to "Comprar",  stores_path(@stores), class: "navbar-wagon-item navbar-wagon-link" %>
+
+
 
 
 

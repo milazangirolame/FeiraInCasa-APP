@@ -1,6 +1,4 @@
-
 <div class="card-map">
-
       <div class="center-block">
       <% avatar_url = store.user.facebook_picture_url || "http://placehold.it/30x30" %>
       <%= image_tag avatar_url, class: "avatar-map pagination-centered" %>
@@ -11,10 +9,7 @@
       <br>
 
       <p><h5> <%= store.name %> </h5> </p>
-
       </div>
-
-
 
       <div class= "icon-map">
       <% if store.delivery_product? %>
@@ -22,7 +17,6 @@
       <% end %>
       <% store.products.map(&:category).uniq.each do |category| %>
         <%= image_tag(category, class: "category-icon", "data-toggle" => "tooltip", "data-placement" => "top", :title => category) %>
-
       <% end %>
     </div>
   <%= link_to "", store_path(store), class:"card-link" %>
