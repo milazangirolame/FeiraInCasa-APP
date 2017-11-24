@@ -1,4 +1,5 @@
-<div class="message">
+<div class="row">
+  <div class="message">
   <% photo = item.product.photos.first %>
   <% if photo %>
     <%= cl_image_tag(photo.path, class: "avatar-large") %>
@@ -15,6 +16,14 @@
     <p><strong>Preço</strong></p>
     <h6><%=number_to_currency item.product.price * item.quantity%></h6>
   </div>
-  </div>
 </div>
+</div>
+<div class"card">
+<button> Finalizar</button>
+</div>
+
+
+
+
+
 
