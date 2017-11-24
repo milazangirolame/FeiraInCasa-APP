@@ -1,18 +1,21 @@
 <div class="banner" style="background-image: linear-gradient(-225deg, rgba(0,101,168,0.6) 0%, rgba(0,36,61,0.6) 50%), url('https://img.webmd.com/dtmcms/live/webmd/consumer_assets/site_images/articles/health_tools/12_powerhouse_vegetables_slideshow/intro_cream_of_crop.jpg');">
   <div class="banner-content">
-    <h2>Feirincasa</h2>
     <h2>Vegetais Frescos a um Clique</h2>
-    <%= link_to 'Comprar', stores_path, class: "btn btn-success btn-lg"%>
-    <h4>Ou selecione o local mais próximo</h4>
   </div>
+
 </div>
 
+  <div class="input-group" id="search-map">
+     <input id="pac-input" type="text" class="form-control" placeholder="Digite o local procurado." aria-describedby="basic-addon1">
+  </div>
 
-  <div id="map" style="width: 100%; height: 400px;"></div>
+
+  <div id="map" style="width: 100%; height: 400px;">
+  </div>
 
 
 <% content_for(:after_js) do %>
-  <%= javascript_tag do %>
+  <script>
     var handler = Gmaps.build('Google');
     handler.buildMap({ internal: { id: 'map' } }, function() {
       markers = handler.addMarkers(<%= raw @markers.to_json %>);
@@ -21,10 +24,49 @@
       if (markers.length == 0) {
         handler.getMap().setZoom(4);
       } else if (markers.length == 1) {
-        handler.getMap().setZoom(14);
+        handler.getMap().setZoom(18);
       }
+
+      if (navigator.geolocation) {
+        navigator.geolocation.getCurrentPosition(function(position) {
+          handler.getMap().setCenter({
+            lat: position.coords.latitude,
+            lng: position.coords.longitude
+          });
+        });
+      }
+
+      // Create the search box and link it to the UI element.
+      var input = document.getElementById('pac-input');
+      var map = handler.getMap();
+      var searchBox = new google.maps.places.SearchBox(input);
+
+      map.controls[google.maps.ControlPosition.TOP_LEFT].push(input);
+
+      // Listen for the event fired when the user selects a prediction and retrieve
+      // more details for that place.
+      searchBox.addListener('places_changed', function() {
+        var places = searchBox.getPlaces();
+
+        // For each place, get the icon, name and location.
+        var bounds = new google.maps.LatLngBounds();
+        places.forEach(function(place) {
+          if (!place.geometry) {
+            console.log("Returned place contains no geometry");
+            return;
+          }
+
+          if(place.geometry.viewport) {
+            // Only geocodes have viewport.
+            bounds.union(place.geometry.viewport);
+          } else {
+            bounds.extend(place.geometry.location);
+          }
+        });
+        map.fitBounds(bounds);
+      });
     });
-  <% end %>
+  </script>
 <% end %>
 
 <div class="banner2">
