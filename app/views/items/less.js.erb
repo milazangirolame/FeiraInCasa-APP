@@ -1,1 +1,5 @@
-toastr.success("Removido produto <%= @product.name %>!");
+<% if @item.valid? %>
+  $('#product-<%= @product.id %> .quantity').text(<%= @item.quantity %>)
+  $('#toast-container').hide()
+  toastr.success("Removido produto <%= @product.name %>!");
+<% end %>
