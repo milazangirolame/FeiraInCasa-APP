@@ -4,6 +4,8 @@ class Store < ApplicationRecord
   serialize :days_of_week_opened, Array
   geocoded_by :full_address
   after_validation :geocode, if: :full_address_changed?
+  validates :name, :address, :city, :zipcode, presence: true
+
 
   validates :name, :address, :city, :zipcode, presence: true
   validates :address, uniqueness: { scope: [:city, :zipcode]}
