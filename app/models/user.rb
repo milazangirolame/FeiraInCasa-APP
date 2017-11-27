@@ -5,7 +5,6 @@ class User < ApplicationRecord
   has_many :products, through: :stores
   has_many :items, through: :carts
   has_many :carts
-
   has_one :store
 
   devise :database_authenticatable, :registerable, :recoverable, :rememberable, :trackable, :validatable,

@@ -6,6 +6,10 @@ class ProductsController < ApplicationController
 
   def show
     @product = Product.find(params[:id])
+    @item = @product.item_for(current_user)
+    if !@item
+      @item = Item.new(quantity: 0)
+    end
   end
 
   def new

@@ -7,6 +7,9 @@ class Store < ApplicationRecord
   validates :name, :address, :city, :zipcode, presence: true
 
 
+  validates :name, :address, :city, :zipcode, presence: true
+  validates :address, uniqueness: { scope: [:city, :zipcode]}
+
   def full_address
     "#{self.address}, #{self.city}, #{self.zipcode}"
   end

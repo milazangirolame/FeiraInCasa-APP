@@ -4,13 +4,17 @@ class ItemsController < ApplicationController
    @item = Item.new
   end
 
+ def show
+  @itens = Item.find_by(product: product, cart: cart)
+  @itens.quantity
+ end
+
   def more
-    product = Product.find(params[:product_id])
+    @product = Product.find(params[:product_id])
     cart = Cart.find(params[:cart_id])
-    item = Item.find_or_initialize_by(product: product, cart: cart)
-    item.quantity += 1
-    item.save
-    @product = product
+    @item = Item.find_or_initialize_by(product: @product, cart: cart)
+    @item.quantity += 1
+    @item.save
   end
 
   def create
@@ -26,9 +30,9 @@ class ItemsController < ApplicationController
 
     product = Product.find(params[:product_id])
     cart = Cart.find(params[:cart_id])
-    item = Item.find_or_initialize_by(product: product, cart: cart)
-    item.quantity -= 1
-    item.save
+    @item = Item.find_or_initialize_by(product: product, cart: cart)
+    @item.quantity -= 1
+    @item.save
     @product = product
 
   end
