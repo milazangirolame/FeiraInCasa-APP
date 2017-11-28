@@ -10,7 +10,6 @@ class User < ApplicationRecord
   devise :database_authenticatable, :registerable, :recoverable, :rememberable, :trackable, :validatable,
   :omniauthable, omniauth_providers: [:facebook]
 
-  validates :cpf, :firstname, :lastname, :address, presence: true
 
   def current_cart
     carts.order(created_at: :desc).first || Cart.create!(user: self)

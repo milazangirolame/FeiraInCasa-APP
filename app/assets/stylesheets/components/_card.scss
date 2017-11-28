@@ -106,7 +106,6 @@
 
 }
 
-
 .card-map {
   height: 120px;
   left: 2px;
@@ -116,7 +115,17 @@
   text-align: center;
 }
 
+
 .card-yellow {
   background-color: #ffffe6;
   left: 100px;
+
+.avatar-store {
+  width: 100px;
+  border-radius: 50%;
+  horizontal-align: middle;
+  margin: auto;
+  text-align: center;
+  display:block;
+
 }
