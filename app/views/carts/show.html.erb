@@ -1,5 +1,13 @@
-<div class="card">
-<% @items.each do |item| %>
-  <%= render partial: "product", locals: {item: item} %>
-<%end%>
+<div class="row">
+  <div class="card">
+  <% @items.each do |item| %>
+    <%= render partial: "product", locals: {item: item} %>
+  <%end%>
+  </div>
 </div>
+  <br>
+<div class="card-yellow">
+<button type="buttom" class="btn btn-primary">Finalizar</button>
+
+
+
