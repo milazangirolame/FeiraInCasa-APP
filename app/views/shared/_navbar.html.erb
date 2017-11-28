@@ -13,20 +13,18 @@
 
 
       <!-- Links when logged in -->
+
       <% if current_user.store && current_user.store.persisted? %>
-        <%= link_to "Editar Loja", edit_store_path(current_user.store), class: "navbar-wagon-item navbar-wagon-link" %>
+        <%= link_to "Minha Loja",  store_path(current_user.store), class: "navbar-wagon-item navbar-wagon-link" %>
       <% else %>
         <%= link_to "Criar Loja",  new_store_path(), class: "navbar-wagon-item navbar-wagon-link" %>
       <% end %>
 
-
-      <%= link_to "Minha Loja",  stores_path(current_user.store), class: "navbar-wagon-item navbar-wagon-link" %>
-
-
       <div class="navbar-wagon-right hidden-xs hidden-sm cart-nav">
+
       <%= link_to cart_path(current_user.current_cart), class: "cart-nav" do %>
         <i class="fa fa-shopping-cart iconx"></i>
-        <span class="badge">0</span>
+        <span class="badge"> <%= current_user.current_cart.items.count %> </span>
       <%end%>
       </div>
 
@@ -58,7 +56,9 @@
       <i class="fa fa-bars dropdown-toggle" data-toggle="dropdown"></i>
       <ul class="dropdown-menu dropdown-menu-right navbar-wagon-dropdown-menu">
 
-        <li><a href="#">Agendamentos</a></li>
+        <li> <%= link_to destroy_user_session_path, method: :delete do %>
+                <i class="fa fa-sign-out"></i>  <%= t(".sign_out", default: "Log out") %>
+              <% end %></li>
 
       </ul>
     </div>

@@ -42,9 +42,9 @@ class ItemsController < ApplicationController
     product = Product.find(params[:product_id])
     cart = Cart.find(params[:cart_id])
     item = Item.find_by(product: product, cart: cart)
-    item.quantity = 0
-    item.save
-    @product = product
+    item.delete
+    redirect_to cart_path
+
 
   end
 

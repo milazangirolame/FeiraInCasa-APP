@@ -32,7 +32,6 @@ class StoresController < ApplicationController
   def show
     @store = Store.find(params[:id])
     @user = @store.user
-
   end
 
   def edit
