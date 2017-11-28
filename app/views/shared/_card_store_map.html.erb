@@ -16,7 +16,7 @@
         <i class="fa fa-truck" data-toggle="tooltip" data-placement="top" title="Frete"></i>
       <% end %>
       <% store.products.map(&:category).uniq.each do |category| %>
-        <%= image_tag(category, class: "category-icon", "data-toggle" => "tooltip", "data-placement" => "top", :title => category) %>
+        <%= image_tag("#{category}.png", class: "category-icon", "data-toggle" => "tooltip", "data-placement" => "top", :title => category) %>
       <% end %>
     </div>
   <%= link_to "", store_path(store), class:"card-link" %>
