@@ -20,7 +20,7 @@ class ProductsController < ApplicationController
     @product = Product.new(product_params)
     @product.store = current_user.store
     if @product.save
-      redirect_to @product
+      redirect_to current_user.store
     else
       render :new
     end
@@ -42,6 +42,7 @@ class ProductsController < ApplicationController
 
   def destroy
     @product.destroy
+    redirect_to current_user.store
   end
 
   private
