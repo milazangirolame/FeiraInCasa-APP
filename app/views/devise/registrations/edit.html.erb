@@ -14,9 +14,9 @@
         <% end %>
         <%= f.input :firstname, required: true, autofocus: true %>
         <%= f.input :lastname, required: true, autofocus: true %>
-        <%= f.input :address, required: true, autofocus: true %>
-        <%= f.input :zipcode, required: true, autofocus: true %>
-        <%= f.input :city, required: true, autofocus: true %>
+        <%= f.input :address, autofocus: true %>
+        <%= f.input :zipcode, autofocus: true %>
+        <%= f.input :city, autofocus: true %>
         <%= f.input :email, required: true, autofocus: true %>
 
         <%= f.input :password, autocomplete: "off", hint: "deixe em branco se você não quer mudar", required: false %>

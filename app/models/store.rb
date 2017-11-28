@@ -5,9 +5,6 @@ class Store < ApplicationRecord
   geocoded_by :full_address
   after_validation :geocode, if: :full_address_changed?
   validates :name, :address, :city, :zipcode, presence: true
-
-
-  validates :name, :address, :city, :zipcode, presence: true
   validates :address, uniqueness: { scope: [:city, :zipcode]}
 
   def full_address

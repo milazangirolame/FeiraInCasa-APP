@@ -13,10 +13,10 @@
 
 
       <!-- Links when logged in -->
-      <% if current_user.store.nil? %>
-        <%= link_to "Criar Loja",  new_store_path(), class: "navbar-wagon-item navbar-wagon-link" %>
+      <% if current_user.store && current_user.store.persisted? %>
+        <%= link_to "Editar Loja", edit_store_path(current_user.store), class: "navbar-wagon-item navbar-wagon-link" %>
       <% else %>
-      <%= link_to "Editar Loja",  edit_store_path(current_user.store), class: "navbar-wagon-item navbar-wagon-link" %>
+        <%= link_to "Criar Loja",  new_store_path(), class: "navbar-wagon-item navbar-wagon-link" %>
       <% end %>
 
 

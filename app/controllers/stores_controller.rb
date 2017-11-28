@@ -19,7 +19,7 @@ class StoresController < ApplicationController
     if @store.save
       redirect_to @store
     else
-      render:new
+      render :new
     end
   end
 
