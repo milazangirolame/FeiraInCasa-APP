@@ -26,7 +26,7 @@
 
       <%= link_to "Agendamentos", "#", class: "navbar-wagon-item navbar-wagon-link" %>
       <div class="navbar-wagon-right hidden-xs hidden-sm cart-nav">
-      <%= link_to cart_path(current_user.current_cart), class: "cart-nav", remote: true, method: :post do %>
+      <%= link_to cart_path(current_user.current_cart), class: "cart-nav", do%>
         <i class="fa fa-shopping-cart iconx"></i>
         <span class="badge">0</span>
       <%end%>
