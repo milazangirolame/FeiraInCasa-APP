@@ -13,14 +13,12 @@
 
 
       <!-- Links when logged in -->
-      <% if current_user.store.nil? %>
+
+      <% if current_user.store && current_user.store.persisted? %>
+        <%= link_to "Minha Loja",  store_path(current_user.store), class: "navbar-wagon-item navbar-wagon-link" %>
+      <% else %>
         <%= link_to "Criar Loja",  new_store_path(), class: "navbar-wagon-item navbar-wagon-link" %>
-       <% else %>
-
-      <%= link_to "Minha Loja",  store_path(current_user.store), class: "navbar-wagon-item navbar-wagon-link" %>
-
       <% end %>
-
 
       <div class="navbar-wagon-right hidden-xs hidden-sm cart-nav">
 

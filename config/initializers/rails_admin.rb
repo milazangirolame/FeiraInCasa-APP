@@ -10,7 +10,9 @@ RailsAdmin.config do |config|
 
   ## == Cancan ==
   # config.authorize_with :cancan
-
+  config.authorize_with do
+      redirect_to main_app.root_path unless current_user.try(:admin?)
+    end
   ## == Pundit ==
   # config.authorize_with :pundit
 
@@ -33,6 +35,7 @@ RailsAdmin.config do |config|
     edit
     delete
     show_in_app
+
 
     ## With an audit adapter, you can add:
     # history_index
