@@ -41,6 +41,7 @@ class ProductsController < ApplicationController
   end
 
   def destroy
+    @product = Product.find(params[:id])
     @product.destroy
     redirect_to current_user.store
   end

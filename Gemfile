@@ -28,7 +28,7 @@ gem "gmaps4rails"
 source 'https://rails-assets.org' do
   gem "rails-assets-underscore"
 end
-
+gem "paranoia", "~> 2.2"
 gem 'remotipart', github: 'mshibuya/remotipart'
 gem 'rails_admin_rollincode', '~> 1.0'
 gem 'rails_admin', '>= 1.0.0.rc'

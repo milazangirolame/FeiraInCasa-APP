@@ -23,6 +23,9 @@
         <%= link_to edit_product_path(product), "data-toggle" => "tooltip", "data-placement" => "top", :title => "Editar produto"  do %>
           <i class="fa fa-pencil icon" aria-hidden="true"></i>
         <%end%>
+         <%= link_to product_path(product), method: :delete, "data-toggle" => "tooltip", "data-placement" => "top", :title => "Excluir produto"  do %>
+          <i class="fa fa-trash icon" aria-hidden="true"></i>
+        <%end%>
       </div>
     <%else%>
       <div class="message-number">
