@@ -18,6 +18,7 @@ gem 'jquery-rails'
 gem 'sass-rails'
 gem 'simple_form'
 gem 'uglifier'
+#gem 'rails_admin_rollincode', '~> 1.0'
 gem 'cloudinary', '1.1.7'
 gem 'attachinary', github: 'assembler/attachinary'
 gem 'jquery-fileupload-rails'
@@ -28,6 +29,7 @@ source 'https://rails-assets.org' do
 end
 
 gem 'remotipart', github: 'mshibuya/remotipart'
+gem 'rails_admin_rollincode', '~> 1.0'
 gem 'rails_admin', '>= 1.0.0.rc'
 gem 'geocoder'
 
