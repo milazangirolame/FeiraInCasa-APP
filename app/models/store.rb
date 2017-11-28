@@ -8,6 +8,7 @@ class Store < ApplicationRecord
   validates :address, uniqueness: { scope: [:city, :zipcode]}
   validates :days_of_week_opened, length: { minimum: 1 }
 
+
   def full_address
     "#{self.address}, #{self.city}, #{self.zipcode}"
   end

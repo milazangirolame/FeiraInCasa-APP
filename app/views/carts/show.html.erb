@@ -1,14 +1,13 @@
 <div class="row">
   <div class="card">
-  <% @items.each do |item| %>
+    <% @items.each do |item| %>
     <%= render partial: "product", locals: {item: item} %>
-  <%end%>
+    <%end%>
+    <div class="card-yellow">
+      <button type="button" class="btn btn-primary">Finalizar</button>
+        <%= link_to "Escolher mais produtos", stores_path,  class: "btn btn-primary" %>
+    </div>
   </div>
-</div>
-  <br>
-<div class="card-yellow">
-<button type="buttom" class="btn btn-primary">Finalizar</button>
-<%= link_to "Escolher mais produtos", stores_path,  class: "btn btn-primary" %>
 </div>
 
 
