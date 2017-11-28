@@ -1,3 +1,4 @@
 $('#product-<%= @product.id %> .quantity').text(<%= @item.quantity %>)
+$(".cart-items-count").text(<%= current_user.current_cart.items.count %>);
 $('#toast-container').hide()
 toastr.success("Adicionado produto <%= @product.name %>! <i class='fa fa-trash'></i>");

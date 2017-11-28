@@ -24,7 +24,7 @@
 
       <%= link_to cart_path(current_user.current_cart), class: "cart-nav" do %>
         <i class="fa fa-shopping-cart iconx"></i>
-        <span class="badge"> <%= current_user.current_cart.items.count %> </span>
+        <span class="badge cart-items-count"> <%= current_user.current_cart.items.count %> </span>
       <%end%>
       </div>
 
