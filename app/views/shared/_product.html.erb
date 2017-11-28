@@ -18,7 +18,13 @@
       <h6>R<%=number_to_currency product.price%></h6>
     </div>
 
-    <%if current_user ==! @store.user %>
+    <%if current_user == @store.user %>
+       <div class="message-number">
+        <%= link_to edit_product_path(product), "data-toggle" => "tooltip", "data-placement" => "top", :title => "Editar produto"  do %>
+          <i class="fa fa-pencil icon" aria-hidden="true"></i>
+        <%end%>
+      </div>
+    <%else%>
       <div class="message-number">
         <%= link_to more_cart_items_path(current_user.current_cart, product_id: product.id), remote: true, method: :post, class: 'positive' do %>
             <i class="fa fa-plus-circle icon"></i>
@@ -31,19 +37,12 @@
         <%= link_to less_cart_items_path(current_user.current_cart, product_id: product.id), remote: true, method: :post, class: 'negative' do %>
             <i class="fa fa-minus-circle icon"></i>
         <%end%>
-      </div>
-
-    <%else%>
-      <div class="message-number">
-        <%= link_to edit_product_path(product), "data-toggle" => "tooltip", "data-placement" => "top", :title => "Editar produto"  do %>
-          <i class="fa fa-pencil icon" aria-hidden="true"></i>
-        <%end%>
-      </div>
+       </div>
     <%end%>
   </div>
 <% end %>
 
- <%if current_user ==! @store.user %>
+ <%if current_user != @store.user && products.size != 0 %>
     <div class"card">
      <%= link_to cart_path(current_user.current_cart) do %>
       <button type="button" class= "btn btn-primary"> Finalizar </button >
