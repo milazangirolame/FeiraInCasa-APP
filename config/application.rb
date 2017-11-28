@@ -17,6 +17,8 @@ require "attachinary/orm/active_record"
 # you've limited to :test, :development, or :production.
 Bundler.require(*Rails.groups)
 
+ENV['RAILS_ADMIN_THEME'] = 'rollincode'
+
 module Feirincasa2
   class Application < Rails::Application
     config.generators do |generate|
@@ -34,4 +36,5 @@ module Feirincasa2
     # Don't generate system test files.
     config.generators.system_tests = nil
   end
+
 end
