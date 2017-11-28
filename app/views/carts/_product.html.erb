@@ -22,7 +22,7 @@
       <div class="message-body">
         <p><strong>Editar</strong></p>
         <%= link_to cart_item_path(current_user.current_cart, item_id: item.id , product_id: item.product.id),  method: :delete, class: 'destroy' do %>
-              <i class="fa fa-plus-circle icon"></i>
+              <i class="fa fa-trash"></i>
         <% end %>
       </div>
     </div>
