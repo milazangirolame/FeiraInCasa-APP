@@ -16,10 +16,12 @@
       <% if current_user.store.nil? %>
         <%= link_to "Criar Loja",  new_store_path(), class: "navbar-wagon-item navbar-wagon-link" %>
       <% else %>
-        <%= link_to "Editar Loja",  edit_store_path(current_user.store), class: "navbar-wagon-item navbar-wagon-link" %>
+      <%= link_to "Editar Loja",  edit_store_path(current_user.store), class: "navbar-wagon-item navbar-wagon-link" %>
       <% end %>
 
 
+
+      <%= link_to "Minha Loja",  stores_path(current_user.store), class: "navbar-wagon-item navbar-wagon-link" %>
 
 
 
@@ -29,10 +31,7 @@
         <i class="fa fa-shopping-cart iconx"></i>
         <span class="badge">0</span>
       <%end%>
-
       </div>
-
-
 
       <!-- Avatar with dropdown menu -->
       <div class="navbar-wagon-item">
@@ -52,7 +51,7 @@
       <!-- Login link (when logged out) -->
       <%=link_to "Como Funciona", "#como-funciona", class: "navbar-wagon-item navbar-wagon-link" %>
       <%= link_to t(".sign_in", default: "Login"), new_user_session_path, class: "navbar-wagon-item navbar-wagon-link" %>
-    <%= link_to "Torne-se um Vendedor", new_store_path, class: "navbar-wagon-item navbar-wagon-link" %>
+      <%= link_to "Torne-se um Vendedor", new_store_path, class: "navbar-wagon-item navbar-wagon-link" %>
     <% end %>
   </div>
 
