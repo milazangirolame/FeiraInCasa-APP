@@ -27,8 +27,8 @@ class PaymentsController < ApplicationController
   end
 
   def show
-  @cart = Cart.find(params[:id]
-end
+    @cart = Cart.find(params[:id])
+  end
 
 private
 
