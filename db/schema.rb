@@ -10,6 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
+
 ActiveRecord::Schema.define(version: 20171128210637) do
 
   # These are extensions that must be enabled in order to support this database
@@ -63,7 +64,9 @@ ActiveRecord::Schema.define(version: 20171128210637) do
     t.integer "store_id"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
+    t.datetime "deleted_at"
     t.integer "price_centavos", default: 0, null: false
+    t.index ["deleted_at"], name: "index_products_on_deleted_at"
   end
 
   create_table "stores", force: :cascade do |t|
