@@ -3,7 +3,6 @@ class Product < ApplicationRecord
 
   acts_as_paranoid
   monetize :price_centavos
-
   belongs_to :store
   has_many :items
   has_attachments :photos, maximum: 1

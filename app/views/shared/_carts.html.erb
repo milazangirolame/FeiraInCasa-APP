@@ -1,0 +1,37 @@
+<% @carts.each do |cart| %>
+  <div class="message" id="cart-<%= cart.id %>">
+    <% photo = cart.user.facebook_picture_url %>
+    <% if photo %>
+      <%= cl_image_tag(photo, class: "avatar-large") %>
+    <% end %>
+    <div class="message-body align-top">
+      <p><strong>Comprador:</strong></p>
+      <h6><%=cart.user.email%></h6>
+    </div>
+
+    <div class="message-body align-top">
+      <p><strong>Data de entrega:</strong></p>
+      <h6>-<%= cart.delivery_date %></h6>
+    </div>
+
+    <div class="message-body align-top">
+      <p><strong>Valor total:</strong></p>
+      <h6>R$ adicionar total</h6>
+    </div>
+
+    <div class="message-body align-top text-center">
+      <p><strong>Produtos:</strong></p>
+      <% if cart.items.count > 0  %>
+        <h6 > <%= cart.items.count %></h6>
+      <% end %>
+    </div>
+
+    <div class="message-number">
+      <%= link_to cart_path(cart), "data-toggle" => "tooltip", "data-placement" => "top", :title => "Ver detalhes"  do %>
+          <i class="fa fa-search-plus icon" aria-hidden="true"></i>
+        <%end%>
+    </div>
+
+  </div>
+<% end %>
+
