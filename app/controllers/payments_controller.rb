@@ -17,7 +17,6 @@ class PaymentsController < ApplicationController
     description:  "Pagamento feito com sucesso #{@cart.id}",
     currency:     @cart.amount.currency
   )
-
   @cart.update(payment: charge.to_json, state: 'paid')
   redirect_to stores_path
 
