@@ -30,4 +30,9 @@
 # available at http://guides.rubyonrails.org/i18n.html.
 
 en:
-  hello: "Hello world"
+  title: "Fresh Vegetables in just a click"
+  navbar:
+    title: "Purchase"
+    title2: "How does it work"
+    title3: "Login"
+    title4: "Become a Seller"
