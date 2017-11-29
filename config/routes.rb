@@ -8,6 +8,7 @@ Rails.application.routes.draw do
   resources :stores
   resources :products
   resources :carts do
+    resources :payments, only: [:new, :create]
     resources :items, only: [:create, :destroy, :update] do
       collection do
         post :more

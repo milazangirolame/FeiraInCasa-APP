@@ -51,7 +51,7 @@ end
 private
 
 def cart_params
-  params.require(:cart).permit(:items, :user, :delivery_date, :delivery_zipcode, :delivery_address, :delivery_city, :payment_method)
+  params.require(:cart).permit(:items, :amount, :state, :user, :delivery_date, :delivery_zipcode, :delivery_address, :delivery_city, :payment_method)
 
 end
 
