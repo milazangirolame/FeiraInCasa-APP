@@ -41,7 +41,7 @@ pt-BR:
       signed_up: "Bem-Vindo!Você entrou com sucessou!"
       signed_up_but_inactive: "Você se cadastrou com successo. No entanto, nós não liberamos seu acesso pois sua conta ainda não está ativada."
       signed_up_but_locked: "Você se cadastrou com successo. No entanto, nós não liberamos seu acesso pois sua conta está bloqueada."
-        signed_up_but_unconfirmed: "Uma mensagem contendo um link de confirmação foi enviado ao seu endereço de email. Favor siga o link para ativar sua conta."
+      signed_up_but_unconfirmed: "Uma mensagem contendo um link de confirmação foi enviado ao seu endereço de email. Favor siga o link para ativar sua conta."
       update_needs_confirmation: "Você atualizou sua conta com sucesso, porém necessitamos verificar seu novo endereço de email. Favor verifique seu email e siga o link de confirmação para confirmar seu novo endereço de email."
       updated: "Sua conta foi atualizada com sucesso!"
     sessions:
@@ -49,7 +49,7 @@ pt-BR:
       signed_out: "Saiu com sucesso."
       already_signed_out: "Saiu com sucesso."
     unlocks:
-      send_instructions: ""Você irá receber um email com instruções de como desbloquear sua conta dentro de minutos."
+      send_instructions: "Você irá receber um email com instruções de como desbloquear sua conta dentro de minutos."
       send_paranoid_instructions: "Se caso sua conta for existente em nossa base de dados, você irá receber um email com instruções de como desbloquea-la dentro de minutos."
       unlocked: "Sua conta foi desbloqueada com sucesso. Favor entrar para continuar."
   errors:

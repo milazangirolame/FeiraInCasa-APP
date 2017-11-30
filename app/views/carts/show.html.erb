@@ -1,6 +1,6 @@
 <div class="row">
     <div class="card">
-      <%if current_user == @cart.user %>
+      <%if current_user == @cart.user && @cart.store.delivery_product == true %>
         <%= simple_form_for(@cart, url: cart_payments_path(@cart), method: :post) do |f| %>
           <div class='row' style="margin-top: 35px;">
             <div class="col-xs-12 col-sm-4">
