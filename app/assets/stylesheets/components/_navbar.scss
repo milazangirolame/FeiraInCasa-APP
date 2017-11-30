@@ -3,7 +3,7 @@
   box-shadow: 0 1px 5px 0 rgba(0,0,0,0.07),0 1px 0 0 rgba(0,0,0,0.03);
   background: #32B796;
   transition: all 0.3s ease;
-  height: 60px;
+  height: 70px;
   padding: 0px 30px;
   display: flex;
   align-items: center;
@@ -11,7 +11,8 @@
   .badge {
   background-color: white;
   color: green;
- }
+
+}
 
 a {
 font-family: 'Just Another Hand', cursive;
@@ -25,7 +26,7 @@ font-color: #c6c6c6
 }
 
 h2 {
-    font-size: 50px;
+    font-size: 35px;
     color: white;
     font-family: 'Grand Hotel', cursive;
 
@@ -35,7 +36,9 @@ h2 {
 
 /* Logo */
 .navbar-wagon-brand img {
-  height: 50px;
+  height: 60px;
+  padding: 0px;
+  margin: 0px;
 }
 
 /* User Avatar */
