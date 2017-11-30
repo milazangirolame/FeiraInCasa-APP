@@ -7,6 +7,11 @@
   </div>
 <%end%>
 
+<%if current_user == @store.user %>
+    <h5> <strong> Abaixo seus produtos: </strong> </h5>
+<%else%>
+    <h5><strong> Escolha abaixo suas compras: </strong> </h5>
+<%end%>
 
 <div class="message">
   <div class="message-body-photo message-center">

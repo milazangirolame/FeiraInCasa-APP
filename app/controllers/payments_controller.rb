@@ -18,6 +18,7 @@ class PaymentsController < ApplicationController
       currency:     @cart.amount.currency
     )
     @cart.update(payment: charge.to_json, state: 'paid')
+    @cart.update(cart_strong)
     flash[:notice] = "Pedido confirmado!"
     redirect_to stores_path
 
@@ -31,7 +32,11 @@ class PaymentsController < ApplicationController
     @cart = Cart.find(params[:id])
   end
 
-private
+  private
+
+  def cart_strong
+    params.require(:cart).permit(:delivery_address, :delivery_city, :delivery_zipcode, :delivery_date)
+  end
 
   def set_cart
     @cart = Cart.find(params[:cart_id])
