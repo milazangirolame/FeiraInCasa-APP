@@ -3,5 +3,6 @@ $(".cart-items-count").text(<%= current_user.current_cart.items.count %>);
 toastr.options.closeHtml = '<button><i class="icon-off"></i></button>';
 toastr.options.preventDuplicates = true;
 toastr.options.timeOut = 30;
+toastr.options.positionClass = "toast-bottom-right";
 toastr.success("Adicionado produto <%= @product.name %>! <i class='fa fa-trash'></i>");
 

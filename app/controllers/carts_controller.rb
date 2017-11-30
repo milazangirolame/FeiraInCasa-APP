@@ -42,6 +42,7 @@ class CartsController < ApplicationController
 
   @cart = Cart.find(params[:id])
   if @cart.update(cart_params)
+    flash[:notice] = "Endereço alterado com sucesso!"
     redirect_to cart_path(@cart)
   else
     render :edit

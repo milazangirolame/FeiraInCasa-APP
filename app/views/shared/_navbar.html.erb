@@ -10,6 +10,7 @@
 
   <!-- Right Navigation -->
   <div class="navbar-wagon-right hidden-xs hidden-sm">
+    <%= link_to t('navbar.title'), stores_path, class: "navbar-wagon-item navbar-wagon-link" %>
 
     <%= link_to "Comprar",  stores_path, class: "navbar-wagon-item navbar-wagon-link" %>
 
@@ -41,7 +42,7 @@
           <ul class="dropdown-menu dropdown-menu-right navbar-wagon-dropdown-menu">
             <li>
               <%= link_to destroy_user_session_path, method: :delete do %>
-                <i class="fa fa-sign-out"></i>  <%= t("devise.sessions.signed_out") %>
+                <i class="fa fa-sign-out"></i>  <%= t(".sign_out", default: "Log out") %>
               <% end %>
             </li>
           </ul>
@@ -50,7 +51,8 @@
     <% else %>
       <!-- Login link (when logged out) -->
       <%=link_to t('navbar.title2'), "#como-funciona", class: "navbar-wagon-item navbar-wagon-link" %>
-      <%= link_to t("devise.sessions.signed_in", default: "Login"), new_user_session_path, class: "navbar-wagon-item navbar-wagon-link" %>
+
+      <%= link_to 'Login', new_user_session_path, class: "navbar-wagon-item navbar-wagon-link" %>
       <%= link_to t('navbar.title4'), new_store_path, class: "navbar-wagon-item navbar-wagon-link" %>
     <% end %>
   </div>
@@ -61,9 +63,12 @@
       <i class="fa fa-bars dropdown-toggle" data-toggle="dropdown"></i>
       <ul class="dropdown-menu dropdown-menu-right navbar-wagon-dropdown-menu">
 
-        <li> <%= link_to destroy_user_session_path, method: :delete do %>
-                <i class="fa fa-sign-out"></i>  <%= t("devise.sessions.signed_out", default: "Log out") %>
-              <% end %></li>
+        <li>
+          <%= link_to destroy_user_session_path, method: :delete do %>
+                <i class="fa fa-sign-out"></i>
+                Logout
+          <% end %>
+        </li>
 
       </ul>
     </div>
