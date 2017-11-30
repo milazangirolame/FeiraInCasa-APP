@@ -59,7 +59,14 @@
     </div>
 
     <div class= "col-xs-12 col-md-8">
-      <div class="card"> Produtos
+      <div class="card">
+
+        <%if current_user == @store.user %>
+            <h5> <strong> Abaixo seus produtos: </strong> </h5>
+        <%else%>
+            <h5><strong> Escolha abaixo suas compras: </strong> </h5>
+        <%end%>
+
         <%= render "/shared/product" %>
       </div>
     </div>
