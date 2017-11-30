@@ -54,12 +54,12 @@
         <p> Cidade <%= @cart.delivery_city%> - Cep <%= @cart.delivery_zipcode%> </p>
         <p> Data de entrega será dia:<%= @cart.delivery_date%> </p>
       <%end%>
-    </div>
-
-
     <% @items.each do |item| %>
       <%= render partial: "product", locals: {item: item} %>
     <%end%>
+    </div>
+
+
 
     <% if @show_pay_button %>
       <%= simple_form_for(@cart, url: cart_payments_path(@cart), method: :post) do |f| %>
