@@ -12,7 +12,7 @@ class User < ApplicationRecord
 
 
   def current_cart
-    carts.order(created_at: :desc).first || Cart.create!(user: self)
+    carts.order(created_at: :desc).where(state: 'pending').first || Cart.create!(user: self, state: 'pending')
   end
 
   def self.find_for_facebook_oauth(auth)

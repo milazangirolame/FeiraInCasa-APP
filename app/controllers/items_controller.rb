@@ -28,12 +28,15 @@ class ItemsController < ApplicationController
 
   def less
 
-    product = Product.find(params[:product_id])
+    @product = Product.find(params[:product_id])
     cart = Cart.find(params[:cart_id])
-    @item = Item.find_or_initialize_by(product: product, cart: cart)
+    @item = Item.find_or_initialize_by(product: @product, cart: cart)
     @item.quantity -= 1
-    @item.save
-    @product = product
+    if @item.quantity == 0
+      @item.destroy
+    else
+      @item.save
+    end
 
   end
 

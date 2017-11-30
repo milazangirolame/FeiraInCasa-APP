@@ -6,6 +6,8 @@ class Store < ApplicationRecord
   after_validation :geocode, if: :full_address_changed?
   validates :name, :address, :city, :zipcode, presence: true
   validates :address, uniqueness: { scope: [:city, :zipcode]}
+  validates :days_of_week_opened, length: { minimum: 1 }
+
 
   def full_address
     "#{self.address}, #{self.city}, #{self.zipcode}"

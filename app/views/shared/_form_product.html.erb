@@ -1,3 +1,4 @@
+
 <%= simple_form_for(@product) do |f| %>
   <%= f.input :name, placeholder: "Digite o Nome do Seu Produto:", label: 'Nome' %>
   <%= f.input :category, collection: Product::CATEGORIES, label: 'Categoria'  %>
@@ -6,3 +7,4 @@
   <%= f.input :photos, as: :attachinary, label: 'Imagem' %>
   <%= f.button :submit, 'Criar Produto', class: "btn btn-primary"  %>
 <% end %>
+

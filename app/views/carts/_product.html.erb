@@ -17,12 +17,11 @@
       </div>
       <div class="message-body">
         <p><strong>Preço</strong></p>
-        <h6><%=number_to_currency item.product.price * item.quantity%></h6>
+        <h6><%= item.total.format(decimal_mark: ",") %></h6>
       </div>
       <div class="message-body">
-        <p><strong>Editar</strong></p>
         <%= link_to cart_item_path(current_user.current_cart, item_id: item.id , product_id: item.product.id),  method: :delete, class: 'destroy' do %>
-              <i class="fa fa-trash"></i>
+              <i class="fa fa-trash icon"></i>
         <% end %>
       </div>
     </div>

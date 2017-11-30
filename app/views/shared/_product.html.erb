@@ -1,39 +1,32 @@
-p<% products = @store.products %>
+<% products = @store.products %>
 <% products.each do |product| %>
   <div class="message" id="product-<%= product.id %>">
     <% photo = product.photos.first %>
-    <% if photo %>
-      <%= cl_image_tag(photo.path, class: "avatar-large") %>
-    <% end %>
-    <div class="message-body">
-      <p><strong><%=product.category%></strong></p>
-      <h6><%=product.name%></h6>
-    </div>
-    <div class="message-body">
-      <p><strong>Unidade</strong></p>
-      <h6><%=product.unity%></h6>
-    </div>
-    <div class="message-body">
-      <p><strong>Preço</strong></p>
-      <h6>R<%=number_to_currency product.price%></h6>
-    </div>
+      <% if photo %>
+        <%= cl_image_tag(photo.path, class: "message-body-photo") %>
+      <% end %>
 
+    <div class="message-body message-center">
+      <h6><%=product.category%> - <%=product.name%> </h6>
+    </div>
+    <div class="message-body message-center">
+        <h6>R<%=number_to_currency product.price%> por <%=product.unity%></h6>
+    </div>
     <%if current_user == @store.user %>
-       <div class="message-number">
+       <div class="message-number message-center">
         <%= link_to edit_product_path(product), "data-toggle" => "tooltip", "data-placement" => "top", :title => "Editar produto"  do %>
           <i class="fa fa-pencil icon" aria-hidden="true"></i>
         <%end%>
+          <%= link_to product_path(product), method: :delete, "data-toggle" => "tooltip", "data-placement" => "top", :title => "Excluir produto"  do %>
+          <i class="fa fa-trash icon" aria-hidden="true"></i>
+        <%end%>
       </div>
     <%else%>
-      <div class="message-number">
+      <div class="message-number message-center">
         <%= link_to more_cart_items_path(current_user.current_cart, product_id: product.id), remote: true, method: :post, class: 'positive' do %>
             <i class="fa fa-plus-circle icon"></i>
         <% end %>
-      </div>
-      <div class="message-number product-items">
         <h5 class="quantity"><%= product.item_for(current_user).quantity %></h5>
-      </div>
-      <div class="message-number">
         <%= link_to less_cart_items_path(current_user.current_cart, product_id: product.id), remote: true, method: :post, class: 'negative' do %>
             <i class="fa fa-minus-circle icon"></i>
         <%end%>
@@ -41,11 +34,3 @@ p<% products = @store.products %>
     <%end%>
   </div>
 <% end %>
-
- <%if current_user != @store.user && products.size != 0 %>
-    <div class"card">
-     <%= link_to cart_path(current_user.current_cart) do %>
-      <button type="button" class= "btn btn-primary"> Finalizar </button >
-    </div>
-  <%end%>
-<%end%>

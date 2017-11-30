@@ -1,6 +1,6 @@
 class StoresController < ApplicationController
   def index
-    @stores = Store.all
+    @stores = Store.where("user_id != :id", id: current_user.id)
   end
 
   def new

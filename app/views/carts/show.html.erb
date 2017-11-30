@@ -1,14 +1,40 @@
 <div class="row">
-  <div class="card">
-  <% @items.each do |item| %>
-    <%= render partial: "product", locals: {item: item} %>
-  <%end%>
+    <div class="card">
+      <%if current_user == @cart.user %>
+        <%= simple_form_for(@cart, url: cart_payments_path(@cart), method: :post) do |f| %>
+          <div class='row' style="margin-top: 35px;">
+            <div class="col-xs-12 col-sm-4">
+              <%= f.input :delivery_address, placeholder: "Rua das Pitangueiras, 10", input_html: { id: 'store_address' } %>
+            </div>
+            <div class="col-xs-12 col-sm-4">
+              <%= f.input :delivery_city, placeholder: "São Paulo", input_html: { id: 'store_city' } %>
+            </div>
+            <div class="col-xs-12 col-sm-4">
+              <%= f.input :delivery_zipcode, placeholder: "07072-010", input_html: { id: 'store_zipcode' } %>
+            </div>
+            <div class="col-xs-12 col-sm-4">
+              <%= f.input :delivery_date, placeholder: "Inclua a data de entrega" %>
+            </div>
+            <%end%>
+          <%else%>
+            <p> Endereço de entrega: <%= @cart.delivery_address%> - Cidade <%= @cart.delivery_city%> - Cep <%= @cart.delivery_zipcode%> </p>
+             <p> Data de entrega será dia:<% @cart.delivery_date%> </p>
+        <%end%>
+    </div>
+      <% @items.each do |item| %>
+        <%= render partial: "product", locals: {item: item} %>
+      <%end%>
+      <input type="text" name="cart_id" value="<%= @cart.id %>" class='hidden'>
+      <script src="https://checkout.stripe.com/checkout.js" class="stripe-button"
+          data-key="<%= Rails.configuration.stripe[:publishable_key] %>"
+          data-email="<%= current_user.email %>"
+          data-amount="<%= @cart.amount_centavos %>"
+          data-label="Pagar"
+          data-panel-label="Pagar"
+          data-currency="<%= @cart.amount.currency %>"></script>
+      <div class="card-yellow">
+      </div>
   </div>
-</div>
-  <br>
-<div class="card-yellow">
-<button type="buttom" class="btn btn-primary">Finalizar</button>
-<%= link_to "Escolher mais produtos", stores_path,  class: "btn btn-primary" %>
 </div>
 
 

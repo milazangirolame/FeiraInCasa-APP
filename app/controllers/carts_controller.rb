@@ -1,7 +1,10 @@
 class CartsController < ApplicationController
 
   def index
-    @carts = Cart.all
+    @carts = Cart.joins(items: { product: :store })
+              .where("stores.user_id" => current_user).uniq
+    @store = current_user.store
+    @user = @store.user
   end
 
   def show
@@ -10,9 +13,7 @@ class CartsController < ApplicationController
   end
 
   def new
-
     @cart = Cart.new
-
   end
 
   def create
@@ -26,11 +27,8 @@ class CartsController < ApplicationController
   end
 
   def edit
-
    @cart = Cart.find(params[:id])
    @items = current_user.product.item.all
-
-
  end
 
  def update
@@ -53,7 +51,7 @@ end
 private
 
 def cart_params
-  params.require(:cart).permit(:items, :user, :delivery_date, :delivery_zipcode, :delivery_address, :delivery_city, :payment_method)
+  params.require(:cart).permit(:items, :amount, :state, :user, :delivery_date, :delivery_zipcode, :delivery_address, :delivery_city, :payment_method)
 
 end
 

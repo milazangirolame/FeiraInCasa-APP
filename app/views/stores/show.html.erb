@@ -41,12 +41,12 @@
         <h4><strong>Fecha em:</strong> <%= @store.closed_time.to_s(:time) %></h4>
         <h4><strong>Faz entrega:</strong> <%=@store.delivery_product ? "Sim" : "Não  " %></h4>
         <%if current_user == @store.user %>
-          <%= link_to edit_store_path(@store), "data-toggle" => "tooltip", "data-placement" => "top", :title => "Editar Loja"  do %>
-            <i class="fa fa-pencil icon" aria-hidden="true"></i>
-          <%end%>
-          <%= link_to rails_admin_path, "data-toggle" => "tooltip", "data-placement" => "top", :title => "Minhas vendas"   do %>
+          <%= link_to carts_path, "data-toggle" => "tooltip", "data-placement" => "top", :title => "Minhas vendas"   do %>
             <i class="fa fa-line-chart icon" aria-hidden="true">
             </i>
+          <%end%>
+          <%= link_to edit_store_path(@store), "data-toggle" => "tooltip", "data-placement" => "top", :title => "Editar Loja"  do %>
+            <i class="fa fa-pencil icon" aria-hidden="true"></i>
           <%end%>
           <%= link_to edit_user_registration_path, "data-toggle" => "tooltip", "data-placement" => "top", :title => "Editar meus dados" do %>
             <i class="fa fa-user-circle-o icon" aria-hidden="true"></i>
@@ -59,7 +59,7 @@
     </div>
 
     <div class= "col-xs-12 col-md-8">
-      <div class="card"> Produtos
+      <div class="card">
         <%= render "/shared/product" %>
       </div>
     </div>
