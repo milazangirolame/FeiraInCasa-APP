@@ -1,6 +1,10 @@
 .banner2{
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-direction: column;
   text-align: center;
-  height: 70vh;
+  height: 50vh;
    .icon {
     color: #ffffff;
    }
@@ -11,7 +15,8 @@
   }
 
   background-size: cover !important;
-  display: flex;
-  align-items: center;
-  justify-content: center;
+}
+
+.section-content {
+  width: 80%;
 }

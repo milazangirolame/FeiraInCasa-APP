@@ -5,14 +5,39 @@
 
 </div>
 
-  <div class="input-group" id="search-map">
-     <input id="pac-input" type="text" class="form-control" placeholder="Digite o local procurado." aria-describedby="basic-addon1">
+<div class="banner2" id="como-funciona">
+  <h2 class="subtitle mb 80">Como funciona</h2>
+  <br><br>
+  <div class="row section-content">
+    <div class="col-md-3">
+      <i class="fa fa-pencil fa-3x"></i>
+      <p>Cadastre-se</p>
+    </div>
+
+    <div class="col-md-3">
+      <i class="fa fa-check-square-o fa-3x"></i>
+      <p>Selecione o produto e o vendedor</p>
+    </div>
+
+    <div class="col-md-3">
+      <i class="fa fa-file-text fa-3x"></i>
+      <p>Faça sua lista</p>
+    </div>
+
+    <div class="col-md-3">
+      <i class="fa fa-credit-card fa-3x"></i>
+      <p>Escolha o método de pagamento</p>
+    </div>
   </div>
+</div>
 
 
-  <div id="map" style="width: 100%; height: 400px;">
-  </div>
+<div class="input-group" id="search-map">
+  <input id="pac-input" type="text" class="form-control" placeholder="Digite o local procurado." aria-describedby="basic-addon1">
+</div>
 
+<div id="map">
+</div>
 
 <% content_for(:after_js) do %>
   <script>
@@ -68,30 +93,3 @@
     });
   </script>
 <% end %>
-
-<div class="banner2">
-  <section id="como-funciona">
-  <h2 class="subtitle mb 80">Como funciona</h2>
-  <h3>Para o comprador</h3><br><br>
-  <div class="row">
-    <div class="col-md-3">
-      <i class="fa fa-pencil fa-3x"></i>
-      <p>Cadastre-se</p>
-    </div>
-
-    <div class="col-md-3">
-      <i class="fa fa-check-square-o fa-3x"></i>
-      <p>Selecione o produto e o vendedor</p>
-    </div>
-
-    <div class="col-md-3">
-      <i class="fa fa-file-text fa-3x"></i>
-      <p>Faça sua lista</p>
-    </div>
-
-    <div class="col-md-3">
-      <i class="fa fa-credit-card fa-3x"></i>
-      <p>Escolha o método de pagamento</p>
-    </div>
-  </div>
-</div>
