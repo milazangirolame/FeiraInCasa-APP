@@ -73,7 +73,7 @@
                 data-currency="<%= @cart.amount.currency %>"></script>
           </div>
         <%end%>
-      <% else %>
+      <% elsif @cart.user == current_user   %>
         <h1> Por favor preencha seu endereço.</h1>
       <% end %>
       </div>
