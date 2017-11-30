@@ -8,30 +8,27 @@
   display: flex;
   align-items: center;
   justify-content: space-between;
+
   .badge {
-  background-color: white;
-  color: green;
+    background-color: white;
+    color: green;
+    font-size: 25px;
+  }
 
-}
+  a:hover {
+    text-decoration: none;
+  }
 
-a {
-font-family: 'Just Another Hand', cursive;
-font-size: 30px;
+  a {
+    font-family: 'Just Another Hand', cursive;
+    font-size: 30px;
+  }
 
-}
-
-a hover {
-font-color: #c6c6c6
-
-}
-
-h2 {
+  h2 {
     font-size: 35px;
     color: white;
     font-family: 'Grand Hotel', cursive;
-
   }
-
 }
 
 /* Logo */
