@@ -7,7 +7,7 @@
 
   <!-- Right Navigation -->
   <div class="navbar-wagon-right hidden-xs hidden-sm">
-    <%= link_to "Comprar", stores_path, class: "navbar-wagon-item navbar-wagon-link" %>
+    <%= link_to t('navbar.title'), stores_path, class: "navbar-wagon-item navbar-wagon-link" %>
 
     <% if user_signed_in? %>
 
@@ -44,9 +44,9 @@
       </div>
     <% else %>
       <!-- Login link (when logged out) -->
-      <%=link_to "Como Funciona", "#como-funciona", class: "navbar-wagon-item navbar-wagon-link" %>
+      <%=link_to t('navbar.title2'), "#como-funciona", class: "navbar-wagon-item navbar-wagon-link" %>
       <%= link_to t(".sign_in", default: "Login"), new_user_session_path, class: "navbar-wagon-item navbar-wagon-link" %>
-      <%= link_to "Torne-se um Vendedor", new_store_path, class: "navbar-wagon-item navbar-wagon-link" %>
+      <%= link_to t('navbar.title4'), new_store_path, class: "navbar-wagon-item navbar-wagon-link" %>
     <% end %>
   </div>
 
