@@ -1,7 +1,7 @@
 <div class="row">
     <div class="card">
-      <%if current_user == @cart.user && @cart.store.delivery_product == true %>
-        <%= simple_form_for(@cart, url: cart_payments_path(@cart), method: :post) do |f| %>
+      <%if current_user == @cart.user && @cart.products.count.positive? && @cart.products.first.store.delivery_product == true %>
+        <%= simple_form_for(@cart) do |f| %>
           <div class='row' style="margin-top: 35px;">
             <div class="col-xs-12 col-sm-4">
               <%= f.input :delivery_address, placeholder: "Rua das Pitangueiras, 10", input_html: { id: 'store_address' } %>
@@ -15,25 +15,65 @@
             <div class="col-xs-12 col-sm-4">
               <%= f.input :delivery_date, placeholder: "Inclua a data de entrega" %>
             </div>
+
+            <div class="col-xs-12">
+              <%= f.submit 'Salvar Endereço' %>
+            </div>
+
             <%end%>
-          <%else%>
-            <p> Endereço de entrega: <%= @cart.delivery_address%> - Cidade <%= @cart.delivery_city%> - Cep <%= @cart.delivery_zipcode%> </p>
-             <p> Data de entrega será dia:<% @cart.delivery_date%> </p>
+          <%elsif current_user == @cart.user && @cart.products.count.positive? && @cart.products.first.store.delivery_product == false %>
+            <p> Por favor retirar seu produto conforme abaixo: </p>
+              <h4><strong>Endereço: </strong><%= @cart.products.first.store.address %></h4>
+              <h4><strong>Cidade: </strong> <%= @cart.products.first.store.city %></h4>
+              <h4><strong>Aberto em: </strong> <% @cart.products.first.store.days_of_week_opened.each do |days| %>
+                <% if days == "1" %>
+                  <%= " Seg " %>
+                <% end %>
+                <% if days == "2" %>
+                  <%= " Ter " %>
+                <% end %>
+                <% if days == "3" %>
+                  <%= " Qua " %>
+                <% end %>
+                <% if days == "4" %>
+                  <%= " Qui " %>
+                <% end %>
+                <% if days == "5" %>
+                  <%= " Sex " %>
+                <% end %>
+                <% if days == "6" %>
+                  <%= " Sáb " %>
+                <% end %>
+                <% if days == "7" %>
+                  <%= " Sáb " %>
+                <% end %>
+              <% end %>
+               <h4><strong>Abre em:</strong> <%= @cart.products.first.store.opened_time.to_s(:time) %></h4>
+              <h4><strong>Fecha em:</strong> <%= @cart.products.first.store.closed_time.to_s(:time) %></h4>
+            <%else%>
+             <p> Endereço de entrega: <%= @cart.delivery_address%> </p>
+
+             <p> Cidade <%= @cart.delivery_city%> - Cep <%= @cart.delivery_zipcode%> </p>
+             <p> Data de entrega será dia:<%= @cart.delivery_date%> </p>
         <%end%>
     </div>
+
+
       <% @items.each do |item| %>
         <%= render partial: "product", locals: {item: item} %>
       <%end%>
-      <input type="text" name="cart_id" value="<%= @cart.id %>" class='hidden'>
-      <script src="https://checkout.stripe.com/checkout.js" class="stripe-button"
-          data-key="<%= Rails.configuration.stripe[:publishable_key] %>"
-          data-email="<%= current_user.email %>"
-          data-amount="<%= @cart.amount_centavos %>"
-          data-label="Pagar"
-          data-panel-label="Pagar"
-          data-currency="<%= @cart.amount.currency %>"></script>
-      <div class="card-yellow">
-      </div>
+
+      <% if @show_pay_button %>
+
+        <input type="text" name="cart_id" value="<%= @cart.id %>" class='hidden'>
+        <script src="https://checkout.stripe.com/checkout.js" class="stripe-button"
+            data-key="<%= Rails.configuration.stripe[:publishable_key] %>"
+            data-email="<%= current_user.email %>"
+            data-amount="<%= @cart.amount_centavos %>"
+            data-label="Pagar"
+            data-panel-label="Pagar"
+            data-currency="<%= @cart.amount.currency %>"></script>
+      <% end %>
   </div>
 </div>
 

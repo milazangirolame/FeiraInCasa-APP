@@ -11,6 +11,7 @@ gem 'redis'
 gem 'omniauth-facebook'
 gem 'toastr-rails'
 gem 'stripe'
+gem 'rails-i18n'
 
 gem 'autoprefixer-rails'
 gem 'bootstrap-sass'

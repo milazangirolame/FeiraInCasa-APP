@@ -10,6 +10,13 @@ class CartsController < ApplicationController
   def show
     @cart = Cart.find(params[:id])
     @items = @cart.items
+
+    @show_pay_button = current_user == @cart.user &&
+                       @cart.products.count.positive? &&
+                       ( !@cart.products.first.store.delivery_product ||
+                         @cart.products.first.store.delivery_product &&
+                         @cart.delivery_address.present?)
+
   end
 
   def new
