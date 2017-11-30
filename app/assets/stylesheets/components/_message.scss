@@ -19,7 +19,15 @@
 .message:last-child {
   border-bottom: none;
 }
-
+.message-center {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+.message-center-left {
+  display: flex;
+  justify-content: center;
+}
 .message-name {
   padding-left: 10px;
   min-width: 100px;
@@ -36,15 +44,27 @@
   margin-top: 2px;
 }
 .message-body {
-  width: 150px;
-  padding-left: 10px;
+  width: 170px;
   font-size: 13px;
   color: rgba(0,0,0,0.7);
-}
-.message-body {
-  padding-left: 20px;
+  padding-left: 10px;
+  margin: 0px;
   color: rgba(0,0,0,0.4);
+  text-align: left;
 }
+
+.message-body-photo {
+  width: 120px;
+  margin: 0px;
+  padding: 0px;
+}
+
+.message-body-photo strong{
+  color: rgba(0,0,0,0.9);
+  color: rgba(0,0,0,0.9);
+}
+
+
 .message-body strong{
   color: rgba(0,0,0,0.9);
   color: rgba(0,0,0,0.9);
@@ -67,12 +87,30 @@
 }
 
 .avatar-large {
-  width: 80px;
+  width: 120px;
   border-radius: 0px;
   box-shadow: 0 1px 2px rgba(0,0,0,0.2);
   border: white 1px solid;
 }
 
-message-number {
- width: 20px;
+.message-number {
+ min-width: 105px;
+ text-align: center;
+}
+
+.text-left {
+  justify-content: flex-start;
+}
+
+.positive {
+  padding-right: 5px;
+}
+.negative {
+  padding-left: 5px;
+}
+
+.button-left {
+  position: absolute;
+  top: 10px;
+  right: 10px;
 }
