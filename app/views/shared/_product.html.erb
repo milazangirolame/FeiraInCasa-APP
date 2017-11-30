@@ -1,35 +1,4 @@
 <% products = @store.products %>
-<%if current_user != @store.user && products.size != 0 %>
-  <div class="button-left">
-   <%= link_to cart_path(current_user.current_cart) do %>
-      <button type="button" class= "btn btn-primary"> Finalizar </button >
-    <%end%>
-  </div>
-<%end%>
-
-
-<div class="message">
-  <div class="message-body-photo message-center">
-    <h6><strong>Foto</strong></h6>
-  </div>
-
-  <div class="message-body message-center">
-    <h6><strong>Produto</strong></h6>
-  </div>
-
-  <div class="message-body message-center">
-    <h6><strong>Preço</strong></h6>
-  </div>
-
-  <div class="message-number message-center">
-    <%if current_user == @store.user %>
-      <h6> <strong> Editar / excluir</strong> </h6>
-    <%else%>
-      <h6><strong> Quantidade </strong> </h6>
-    <%end%>
-  </div>
-</div>
-
 <% products.each do |product| %>
   <div class="message" id="product-<%= product.id %>">
     <% photo = product.photos.first %>
