@@ -11,6 +11,7 @@
   padding: 20px;
   box-shadow: 0 4px 8px 0 rgba(0,0,0,0.2);
 
+
   .icon {
     font-size: 30px;
     text-shadow: none;
@@ -41,13 +42,28 @@
 }
 
 .card h3 {
-  font-size: 24px;
-  color: green;
+  font-size: 35px;
+  color: #32B794;
+  font-family: 'Dancing Script', cursive;
 
 }
 
+.card h1 {
+  font-family: 'Just Another Hand', cursive;
+  font-size: 3em;
+  text-align:center;
+}
+
+.card h5 {
+  font-size: 35px;
+  color: #32B794;
+  font-family: 'Dancing Script', cursive;
+}
 .card-description h2 {
-  font-size: 24px;
+  font-size:30px;
+  color: #32B794;
+  font-family: 'Dancing Script', cursive;
+
 
 }
 .card-description p {
@@ -65,6 +81,7 @@
   z-index: 2;
   background: black;
   opacity: 0;
+
 }
 .card-link:hover {
   opacity: 0.3;
@@ -80,11 +97,13 @@
   display: inline;
   margin:2px;
   color:#0099cc;
+
 }
 
 .category-icon {
   width: 30px;
   padding: 5px;
+
 }
 
 .icon-map {
