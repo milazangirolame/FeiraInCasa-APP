@@ -36,3 +36,6 @@ en:
     title2: "How does it work"
     title3: "Login"
     title4: "Become a Seller"
+    title5: "Sign Up"
+
+  pass: "password"
