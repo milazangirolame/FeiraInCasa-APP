@@ -49,8 +49,8 @@
       </div>
     <% else %>
       <!-- Login link (when logged out) -->
-      <%=link_to t('navbar.title2'), "#como-funciona", class: "navbar-wagon-item navbar-wagon-link" %>
-      <%= link_to t("devise.sessions.signed_in", default: "Login"), new_user_session_path, class: "navbar-wagon-item navbar-wagon-link" %>
+
+      <%= link_to 'Login', new_user_session_path, class: "navbar-wagon-item navbar-wagon-link" %>
       <%= link_to t('navbar.title4'), new_store_path, class: "navbar-wagon-item navbar-wagon-link" %>
     <% end %>
   </div>

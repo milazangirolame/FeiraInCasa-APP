@@ -64,15 +64,16 @@
       <%end%>
 
       <% if @show_pay_button %>
-
-        <input type="text" name="cart_id" value="<%= @cart.id %>" class='hidden'>
-        <script src="https://checkout.stripe.com/checkout.js" class="stripe-button"
-            data-key="<%= Rails.configuration.stripe[:publishable_key] %>"
-            data-email="<%= current_user.email %>"
-            data-amount="<%= @cart.amount_centavos %>"
-            data-label="Pagar"
-            data-panel-label="Pagar"
-            data-currency="<%= @cart.amount.currency %>"></script>
+        <div class="text-center">
+          <input type="text" name="cart_id" value="<%= @cart.id %>" class='hidden'>
+          <script src="https://checkout.stripe.com/checkout.js" class="stripe-button"
+              data-key="<%= Rails.configuration.stripe[:publishable_key] %>"
+              data-email="<%= current_user.email %>"
+              data-amount="<%= @cart.amount_centavos %>"
+              data-label="Pagar"
+              data-panel-label="Pagar"
+              data-currency="<%= @cart.amount.currency %>"></script>
+        </div>
       <% end %>
   </div>
 </div>
