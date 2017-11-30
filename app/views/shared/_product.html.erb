@@ -10,7 +10,7 @@
       <h6><%=product.category%> - <%=product.name%> </h6>
     </div>
     <div class="message-body message-center">
-        <h6>R<%=number_to_currency product.price%> por <%=product.unity%></h6>
+        <h6><%=number_to_currency product.price%> por <%=product.unity%></h6>
     </div>
     <%if current_user == @store.user %>
        <div class="message-number message-center">
