@@ -1,0 +1,12 @@
+<div class="container">
+  <h1 class="store"> Selecione o vendedor abaixo: </h1>
+  <div class="row">
+    <% @stores.each do |store| %>
+       <div class="col-xs-12 col-sm-4">
+        <%= render 'shared/card_store', store: store %>
+       </div>
+    <% end %>
+  </div>
+</div>
+
+

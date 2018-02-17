@@ -1,0 +1,116 @@
+.message {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 10px;
+  border-bottom: 1px solid rgba(220,224,244,0.4);
+  .icon {
+    font-size: 24px;
+    text-shadow: none;
+    color: #32B796;
+  }
+
+  .title {
+    font-size: 25px;
+    text-shadow: none;
+    color: green;
+  }
+}
+.message:last-child {
+  border-bottom: none;
+}
+.message-center {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+.message-center-left {
+  display: flex;
+  justify-content: center;
+}
+.message-name {
+  padding-left: 10px;
+  min-width: 100px;
+}
+.message-name h3 {
+  font-size: 13px;
+  margin-bottom: 0px;
+  margin-top: -2px;
+}
+.message-name p {
+  font-size: 13px;
+  font-weight: lighter;
+  opacity: 0.6;
+  margin-top: 2px;
+}
+.message-body {
+  width: 170px;
+  font-size: 13px;
+  color: rgba(0,0,0,0.7);
+  padding-left: 10px;
+  margin: 0px;
+  color: rgba(0,0,0,0.4);
+  text-align: left;
+}
+
+.message-body-photo {
+  width: 120px;
+  margin: 0px;
+  padding: 0px;
+}
+
+.message-body-photo strong{
+  color: rgba(0,0,0,0.9);
+  color: rgba(0,0,0,0.9);
+}
+
+
+.message-body strong{
+  color: rgba(0,0,0,0.9);
+  color: rgba(0,0,0,0.9);
+}
+.message-body p {
+  margin: 6px 0;
+}
+.message-status {
+  font-size: 14px;
+  font-weight: bold;
+}
+.status.accepted {
+  color: #04A366;
+}
+.status.declined {
+  color: red;
+}
+.status.pending {
+  color: lightgrey;
+}
+
+.avatar-large {
+  width: 120px;
+  border-radius: 0px;
+  box-shadow: 0 1px 2px rgba(0,0,0,0.2);
+  border: white 1px solid;
+}
+
+.message-number {
+ min-width: 105px;
+ text-align: center;
+}
+
+.text-left {
+  justify-content: flex-start;
+}
+
+.positive {
+  padding-right: 5px;
+}
+.negative {
+  padding-left: 5px;
+}
+
+.button-left {
+  position: absolute;
+  top: 10px;
+  right: 10px;
+}

@@ -1,0 +1,35 @@
+<div class="row">
+  <div class= "col-xs-12 col-md-12">
+    <div class="message">
+      <div class="message-body">
+      <% photo = item.product.photos.first %>
+      <% if photo %>
+        <%= cl_image_tag(photo.path, class: "avatar-large") %>
+      <% end %>
+      </div>
+      <div class="message-body">
+        <p><strong><%=item.product.category%></strong></p>
+        <h6><%=item.product.name%></h6>
+      </div>
+      <div class="message-body">
+        <p><strong>Unidade</strong></p>
+        <h6><%=item.quantity%> <%=item.product.unity%></h6>
+      </div>
+      <div class="message-body">
+        <p><strong>Preço</strong></p>
+        <h6><%= item.total.format(decimal_mark: ",") %></h6>
+      </div>
+      <div class="message-body">
+        <%= link_to cart_item_path(current_user.current_cart, item_id: item.id , product_id: item.product.id),  method: :delete, class: 'destroy' do %>
+              <i class="fa fa-trash icon"></i>
+        <% end %>
+      </div>
+    </div>
+  </div>
+</div>
+
+
+
+
+
+

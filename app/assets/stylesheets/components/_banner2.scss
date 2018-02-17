@@ -1,0 +1,31 @@
+.banner2{
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-direction: column;
+  text-align: center;
+  height: 50vh;
+  color: #32B794;
+  font-family: 'Dancing Script', cursive;
+   .icon {
+    color: #0099cc;
+   }
+
+  p {
+    color: #0099cc;
+    margin-top: 10px;
+    font-size: 2em;
+    font-family: 'Just Another Hand', cursive;
+  }
+
+  h2 {
+    font-family: 'Grand Hotel', cursive;
+    font-size: 2em;
+  }
+
+  background-size: cover !important;
+}
+
+.section-content {
+  width: 80%;
+}

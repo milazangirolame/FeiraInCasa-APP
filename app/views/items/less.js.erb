@@ -1,0 +1,10 @@
+<% if @item.valid? %>
+  $('#product-<%= @product.id %> .quantity').text(<%= @item.quantity %>)
+  $(".cart-items-count").text(<%= current_user.current_cart.items.count %>);
+  toastr.options.closeButton = true;
+  toastr.options.preventDuplicates = true;
+  toastr.options.timeOut = 30;
+  toastr.options.positionClass = "toast-bottom-right";
+  toastr.success("Removido produto <%= @product.name %>!");
+
+<% end %>

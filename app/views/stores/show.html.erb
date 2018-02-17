@@ -1,0 +1,73 @@
+<div class="container">
+  <div class="row">
+    <div class= "col-xs-12 col-md-4">
+      <div class="card">
+
+        <div >
+          <% avatar_url = @user.facebook_picture_url || "http://placehold.it/30x30" %>
+          <%= image_tag avatar_url, class: "avatar-store" %>
+        </div>
+
+        <h3> <strong><%= @store.name %> </strong></h3>
+        <p><strong><%= @user.first_name%> <%= @store.user.last_name%></strong></p>
+        <h4><strong>Endereço: </strong><%= @store.address %></h4>
+        <h4><strong>Cidade: </strong> <%= @store.city %></h4>
+        <h4><strong>Aberto em: </strong> <% @store.days_of_week_opened.each do |days| %>
+          <% if days == "1" %>
+            <%= " Seg " %>
+          <% end %>
+          <% if days == "2" %>
+            <%= " Ter " %>
+          <% end %>
+          <% if days == "3" %>
+            <%= " Qua " %>
+          <% end %>
+          <% if days == "4" %>
+            <%= " Qui " %>
+          <% end %>
+          <% if days == "5" %>
+            <%= " Sex " %>
+          <% end %>
+          <% if days == "6" %>
+            <%= " Sáb " %>
+          <% end %>
+          <% if days == "7" %>
+            <%= " Sáb " %>
+          <% end %>
+        <% end %>
+
+        </h4>
+        <h4><strong>Abre em:</strong> <%= @store.opened_time.to_s(:time) %></h4>
+        <h4><strong>Fecha em:</strong> <%= @store.closed_time.to_s(:time) %></h4>
+        <h4><strong>Faz entrega:</strong> <%=@store.delivery_product ? "Sim" : "Não  " %></h4>
+        <%if current_user == @store.user %>
+          <%= link_to carts_path, "data-toggle" => "tooltip", "data-placement" => "top", :title => "Minhas vendas"   do %>
+            <i class="fa fa-line-chart icon" aria-hidden="true">
+            </i>
+          <%end%>
+          <%= link_to edit_store_path(@store), "data-toggle" => "tooltip", "data-placement" => "top", :title => "Editar Loja"  do %>
+            <i class="fa fa-pencil icon" aria-hidden="true"></i>
+          <%end%>
+          <%= link_to edit_user_registration_path, "data-toggle" => "tooltip", "data-placement" => "top", :title => "Editar meus dados" do %>
+            <i class="fa fa-user-circle-o icon" aria-hidden="true"></i>
+          <%end%>
+          <%= link_to new_product_path, "data-toggle" => "tooltip", "data-placement" => "top", :title => "Adicionar Produtos"   do %>
+            <i class="fa fa-plus-circle icon" aria-hidden="true"></i>
+          <%end%>
+        <%end%>
+      </div>
+    </div>
+
+    <div class= "col-xs-12 col-md-8">
+      <div class="card">
+        <%= render "/shared/product" %>
+      </div>
+    </div>
+
+    </div>
+   </div>
+  </div>
+ </div>
+</div>
+
+
